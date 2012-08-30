@@ -34,15 +34,18 @@
 
     2. Follow normal eZ Publish upgrade procedures for upgrading the distribution files and moving over extensions.
 
-4. Install the dependencies with [Composer](http://getcomposer.org).
+**4. Install the dependencies with [Composer](http://getcomposer.org): the recommanded way**
 
        Download composer and install dependencies by running:
-       ```bash
-       cd /path/to/ezpublish5/
-       curl -s http://getcomposer.org/installer | php
-       php composer.phar install
-       ```
-
+       $ bash
+       $ cd /path/to/ezpublish5/
+       $ curl -s http://getcomposer.org/installer | php
+       $ ./composer.phar create-project  ezsystems/ezpublish5-standard ezpublish5-standard
+       
+using composer's method keeps your code update. Everytime you want to get last updates of all your bundles, just run this command:
+```
+$ composer.phar update
+```
 ## Setup files
 1. Configure:
     * Copy `app/config/parameters.yml.dist` to `app/config/parameters.yml`
