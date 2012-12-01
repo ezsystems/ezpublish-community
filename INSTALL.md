@@ -82,7 +82,7 @@
 
        ```bash
        $ sudo chown -R www-data:www-data ezpublish/{cache,logs,config} ezpublish_legacy/{design,extension,settings,var}
-       $ sudo find {ezpublish/{cache,logs,config},ezpublish_legacy/{design,extension,settings,var}} -type d -exec chwon -R 775 www-data '{}' \;
+       $ sudo find {ezpublish/{cache,logs,config},ezpublish_legacy/{design,extension,settings,var}} -type d -exec chown -R 775 www-data '{}' \;
        $ sudo find {ezpublish/{cache,logs,config},ezpublish_legacy/{design,extension,settings,var}} -type f -exec chown -R 664 www-data '{}' \;
        ```
 
