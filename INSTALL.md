@@ -82,8 +82,8 @@
 
        ```bash
        $ sudo chown -R www-data:www-data ezpublish/{cache,logs,config} ezpublish_legacy/{design,extension,settings,var}
-       $ sudo find {ezpublish/{cache,logs,config},ezpublish_legacy/{design,extension,settings,var}} -type d -exec chown -R 775 www-data '{}' \;
-       $ sudo find {ezpublish/{cache,logs,config},ezpublish_legacy/{design,extension,settings,var}} -type f -exec chown -R 664 www-data '{}' \;
+       $ sudo find {ezpublish/{cache,logs,config},ezpublish_legacy/{design,extension,settings,var}} -type d -exec chmod -R 775 '{}' \;
+       $ sudo find {ezpublish/{cache,logs,config},ezpublish_legacy/{design,extension,settings,var}} -type f -exec chmod -R 664 '{}' \;
        ```
 
        D. **Using chmod**
