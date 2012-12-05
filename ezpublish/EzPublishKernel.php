@@ -13,6 +13,7 @@ use eZ\Bundle\EzPublishCoreBundle\EzPublishCoreBundle,
     EzSystems\DemoBundle\EzSystemsDemoBundle,
     Symfony\Component\HttpKernel\Kernel,
     Symfony\Bundle\FrameworkBundle\FrameworkBundle,
+    Symfony\Bundle\MonologBundle\MonologBundle,
     Symfony\Bundle\SecurityBundle\SecurityBundle,
     Symfony\Bundle\TwigBundle\TwigBundle,
     Symfony\Bundle\AsseticBundle\AsseticBundle,
@@ -33,6 +34,7 @@ class EzPublishKernel extends Kernel
     {
         $bundles = array(
             new FrameworkBundle(),
+            new MonologBundle(),
             new SecurityBundle(),
             new TwigBundle(),
             new AsseticBundle(),
