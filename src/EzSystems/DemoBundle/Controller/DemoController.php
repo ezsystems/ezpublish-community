@@ -83,7 +83,7 @@ class DemoController extends Controller
                     $criteria
                 ),
                 'sortClauses' => array(
-                    new SortClause\DatePublished( Query::SORT_DESC )
+                    $this->getSortClauseFromLocation( $location )
                 )
             )
         );
@@ -181,5 +181,57 @@ class DemoController extends Controller
             ),
             $response
         );
+    }
+    
+    function getSortClauseFromLocation( $location )
+    {
+        $constantNameMapping = array( 'SORT_FIELD_PATH' => 'LocationPath',
+                                      'SORT_FIELD_PUBLISHED' => 'DatePublished',
+                                      'SORT_FIELD_MODIFIED' => 'DateModified',
+                                      'SORT_FIELD_DEPTH' => 'LocationDepth',
+                                   // 'SORT_FIELD_CLASS_IDENTIFIER' => '',
+                                   // 'SORT_FIELD_CLASS_NAME' => '',
+                                      'SORT_FIELD_PRIORITY' => 'LocationPriority',
+                                      'SORT_FIELD_NAME' => 'ContentName',
+                                   // 'SORT_FIELD_MODIFIED_SUBNODE' => '',
+                                   // 'SORT_FIELD_NODE_ID' => '',
+                                      'SORT_FIELD_CONTENTOBJECT_ID' => 'ContentId',
+                                    );
+        
+        $reflection = new \ReflectionClass($location);
+        $locationConstants = $reflection->getConstants();
+       
+        if( $location->sortField && is_array( $locationConstants ) )
+        {
+            foreach( $locationConstants as $constantName => $val )
+            {
+                if( strstr( $constantName, 'SORT_FIELD_') &&  $val == $location->sortField )
+                {
+                    if( array_key_exists( $constantName, $constantNameMapping) )
+                    {
+                        $sortClause = "eZ\Publish\API\Repository\Values\Content\Query\SortCLause\\". $constantNameMapping[$constantName];
+                        break;
+                    }
+                    else
+                    {
+                        $sortClause = "eZ\Publish\API\Repository\Values\Content\Query\SortCLause\DatePublished";
+                        break;
+                    }
+                }
+            }
+        }
+        else
+        {
+            $sortClause = "eZ\Publish\API\Repository\Values\Content\Query\SortCLause\DatePublished";
+        }
+        
+        if( $location->sortOrder == Location::SORT_ORDER_DESC )
+            $sortOrder = Query::SORT_DESC;
+        else
+            $sortOrder = Query::SORT_ASC;
+                
+               var_dump($sortClause, new $sortClause( $sortOrder ));
+               
+        return new $sortClause( $sortOrder );
     }
 }
