@@ -23,6 +23,7 @@
        ```bash
        cd /<ezpublish5-root-dir>/
        git clone https://github.com/ezsystems/ezpublish.git ezpublish_legacy
+       cd ezpublish_legacy && mkdir -p var/cache
        ```
 
 3. *Optional* Upgrade an eZ Publish Community Project installation
