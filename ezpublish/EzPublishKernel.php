@@ -46,6 +46,8 @@ class EzPublishKernel extends Kernel
             new EzPublishRestBundle(),
         );
 
+        $bundles[] = new EzSystems\AdminBundle\EzSystemsEzPublishAdminBundle();
+
         if ( $this->getEnvironment() === 'dev' )
         {
             $bundles[] = new WebProfilerBundle();
