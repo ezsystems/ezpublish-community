@@ -29,7 +29,8 @@
         "sensio/generator-bundle": "2.2.*",
         "egulias/listeners-debug-command-bundle": "dev-master",
 
-        "behat/behat": "2.4.*@stable"
+        "behat/behat": "2.4.*@stable",
+        "behat/mink-extension": "*"
     },
     "autoload": {
         "psr-0": {
