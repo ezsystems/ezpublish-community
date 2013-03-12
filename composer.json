@@ -30,7 +30,8 @@
         "egulias/listeners-debug-command-bundle": "dev-master",
 
         "behat/behat": "2.4.*@stable",
-        "behat/mink-extension": "*"
+        "behat/mink-extension": "*",
+        "behat/mink-sahi-driver": "*"
     },
     "autoload": {
         "psr-0": {

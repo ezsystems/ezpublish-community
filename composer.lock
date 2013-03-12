@@ -1,5 +1,5 @@
 {
-    "hash": "7fda01f097da5af6bfe0822b18aa63e8",
+    "hash": "5dd00a501828d00203df794163cd9bb4",
     "packages": [
         {
             "name": "behat/behat",
@@ -233,6 +233,97 @@
                 "gui",
                 "test",
                 "web"
+            ]
+        },
+        {
+            "name": "behat/mink-sahi-driver",
+            "version": "v1.0.0",
+            "source": {
+                "type": "git",
+                "url": "git://github.com/Behat/MinkSahiDriver.git",
+                "reference": "v1.0.0"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://github.com/Behat/MinkSahiDriver/zipball/v1.0.0",
+                "reference": "v1.0.0",
+                "shasum": ""
+            },
+            "require": {
+                "behat/mink": ">=1.4.0,<1.5.0-dev",
+                "behat/sahi-client": ">=1.0.1,<1.1.x-dev",
+                "php": ">=5.3.1"
+            },
+            "time": "2012-05-29 16:29:03",
+            "type": "mink-driver",
+            "autoload": {
+                "psr-0": {
+                    "Behat\\Mink\\Driver": "src/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Konstantin Kudryashov",
+                    "email": "ever.zet@gmail.com",
+                    "homepage": "http://everzet.com"
+                }
+            ],
+            "description": "Sahi.JS driver for Mink framework",
+            "homepage": "http://mink.behat.org/",
+            "keywords": [
+                "ajax",
+                "browser",
+                "javascript",
+                "sahi",
+                "testing"
+            ]
+        },
+        {
+            "name": "behat/sahi-client",
+            "version": "v1.0.1",
+            "source": {
+                "type": "git",
+                "url": "git://github.com/Behat/SahiClient.git",
+                "reference": "v1.0.1"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://github.com/Behat/SahiClient/zipball/v1.0.1",
+                "reference": "v1.0.1",
+                "shasum": ""
+            },
+            "require": {
+                "kriswallsmith/buzz": ">=0.5",
+                "php": ">=5.3.1"
+            },
+            "time": "2011-12-21 02:04:09",
+            "type": "library",
+            "autoload": {
+                "psr-0": {
+                    "Behat\\SahiClient": "src/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Konstantin Kudryashov",
+                    "email": "ever.zet@gmail.com",
+                    "homepage": "http://everzet.com"
+                }
+            ],
+            "description": "Sahi.js client for PHP 5.3",
+            "homepage": "http://sahi.co.in/w/",
+            "keywords": [
+                "JS",
+                "browser",
+                "testing"
             ]
         },
         {
