@@ -29,9 +29,10 @@
         "sensio/generator-bundle": "2.2.*",
         "egulias/listeners-debug-command-bundle": "dev-master",
 
-        "behat/behat": "2.4.*@stable",
+        "behat/behat": "2.4.*",
         "behat/mink-extension": "*",
-        "behat/mink-sahi-driver": "*"
+        "behat/mink-goutte-driver": "*",
+        "behat/mink-selenium-driver": "*"
     },
     "autoload": {
         "psr-0": {
