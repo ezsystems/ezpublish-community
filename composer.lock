@@ -1,6 +1,131 @@
 {
-    "hash": "d1537fde3e1a5f6a90f3644c61a96147",
+    "hash": "b0b4801e0295594cd33125cc2f54c265",
     "packages": [
+        {
+            "name": "behat/behat",
+            "version": "v2.4.5",
+            "source": {
+                "type": "git",
+                "url": "git://github.com/Behat/Behat.git",
+                "reference": "v2.4.5"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://github.com/Behat/Behat/archive/v2.4.5.zip",
+                "reference": "v2.4.5",
+                "shasum": ""
+            },
+            "require": {
+                "behat/gherkin": ">=2.2.4,<2.3-dev",
+                "php": ">=5.3.1",
+                "symfony/config": ">=2.0,<2.3-dev",
+                "symfony/console": ">=2.0,<2.3-dev",
+                "symfony/dependency-injection": ">=2.0,<2.3-dev",
+                "symfony/event-dispatcher": ">=2.0,<2.3-dev",
+                "symfony/finder": ">=2.0,<2.3-dev",
+                "symfony/translation": ">=2.0,<2.3-dev",
+                "symfony/yaml": ">=2.0,<2.3-dev"
+            },
+            "suggest": {
+                "behat/mink-extension": "for integration with Mink testing framework",
+                "behat/symfony2-extension": "for integration with Symfony2 web framework",
+                "behat/yii-extension": "for integration with Yii web framework"
+            },
+            "time": "2013-01-27 14:45:41",
+            "bin": [
+                "bin/behat"
+            ],
+            "type": "library",
+            "extra": {
+                "branch-alias": {
+                    "dev-develop": "2.4-dev"
+                }
+            },
+            "autoload": {
+                "psr-0": {
+                    "Behat\\Behat": "src/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Konstantin Kudryashov",
+                    "email": "ever.zet@gmail.com",
+                    "homepage": "http://everzet.com"
+                }
+            ],
+            "description": "Scenario-oriented BDD framework for PHP 5.3",
+            "homepage": "http://behat.org/",
+            "keywords": [
+                "BDD",
+                "Behat",
+                "Symfony2"
+            ]
+        },
+        {
+            "name": "behat/gherkin",
+            "version": "dev-develop",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/Behat/Gherkin.git",
+                "reference": "70a37689d6fc5d4b9772dfac35c112f031306d09"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/Behat/Gherkin/zipball/70a37689d6fc5d4b9772dfac35c112f031306d09",
+                "reference": "70a37689d6fc5d4b9772dfac35c112f031306d09",
+                "shasum": ""
+            },
+            "require": {
+                "php": ">=5.3.1",
+                "symfony/finder": ">=2.0,<3.0"
+            },
+            "require-dev": {
+                "symfony/config": ">=2.0,<3.0",
+                "symfony/translation": ">=2.0,<3.0",
+                "symfony/yaml": ">=2.0,<3.0"
+            },
+            "suggest": {
+                "symfony/config": "If you want to use Config component to manage resources",
+                "symfony/translation": "If you want to use Symfony2 translations adapter",
+                "symfony/yaml": "If you want to parse features, represented in YAML files"
+            },
+            "time": "2013-03-08 10:25:28",
+            "type": "library",
+            "extra": {
+                "branch-alias": {
+                    "dev-develop": "2.2-dev"
+                }
+            },
+            "autoload": {
+                "psr-0": {
+                    "Behat\\Gherkin": "src/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Konstantin Kudryashov",
+                    "email": "ever.zet@gmail.com",
+                    "homepage": "http://everzet.com"
+                }
+            ],
+            "description": "Gherkin DSL parser for PHP 5.3",
+            "homepage": "http://behat.org/",
+            "keywords": [
+                "BDD",
+                "Behat",
+                "DSL",
+                "Symfony2",
+                "parser"
+            ]
+        },
         {
             "name": "doctrine/annotations",
             "version": "v1.0",
@@ -22,6 +147,7 @@
             "require-dev": {
                 "doctrine/cache": "1.*"
             },
+            "time": "2013-01-12 19:23:32",
             "type": "library",
             "autoload": {
                 "psr-0": {
@@ -64,27 +190,32 @@
                 "annotations",
                 "docblock",
                 "parser"
-            ],
-            "time": "2013-01-12 19:23:32"
+            ]
         },
         {
             "name": "doctrine/cache",
-            "version": "v1.0",
+            "version": "dev-master",
             "source": {
                 "type": "git",
                 "url": "https://github.com/doctrine/cache.git",
-                "reference": "v1.0"
+                "reference": "f82e2e24d429d36a02266a584b889bd2d09e4fd2"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://github.com/doctrine/cache/archive/v1.0.zip",
-                "reference": "v1.0",
+                "url": "https://api.github.com/repos/doctrine/cache/zipball/f82e2e24d429d36a02266a584b889bd2d09e4fd2",
+                "reference": "f82e2e24d429d36a02266a584b889bd2d09e4fd2",
                 "shasum": ""
             },
             "require": {
                 "php": ">=5.3.2"
             },
+            "time": "2013-03-07 12:15:13",
             "type": "library",
+            "extra": {
+                "branch-alias": {
+                    "dev-master": "1.0.x-dev"
+                }
+            },
             "autoload": {
                 "psr-0": {
                     "Doctrine\\Common\\Cache\\": "lib/"
@@ -101,7 +232,7 @@
                     "homepage": "http://www.jwage.com/"
                 },
                 {
-                    "name": "Guilherme Blanco",
+                    "name": "Christoph Dorn",
                     "email": "guilhermeblanco@gmail.com",
                     "homepage": "http://www.instaclick.com"
                 },
@@ -114,9 +245,9 @@
                     "email": "kontakt@beberlei.de"
                 },
                 {
-                    "name": "Johannes Schmitt",
+                    "name": "Johannes M. Schmitt",
                     "email": "schmittjoh@gmail.com",
-                    "homepage": "https://github.com/schmittjoh",
+                    "homepage": "http://jmsyst.com",
                     "role": "Developer of wrapped JMSSerializerBundle"
                 }
             ],
@@ -125,27 +256,32 @@
             "keywords": [
                 "cache",
                 "caching"
-            ],
-            "time": "2013-01-10 22:43:46"
+            ]
         },
         {
             "name": "doctrine/collections",
-            "version": "v1.0",
+            "version": "dev-master",
             "source": {
                 "type": "git",
                 "url": "https://github.com/doctrine/collections.git",
-                "reference": "v1.0"
+                "reference": "560f29c39cfcfbcd210e5d549d993a39d898b04b"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://github.com/doctrine/collections/archive/v1.0.zip",
-                "reference": "v1.0",
+                "url": "https://api.github.com/repos/doctrine/collections/zipball/560f29c39cfcfbcd210e5d549d993a39d898b04b",
+                "reference": "560f29c39cfcfbcd210e5d549d993a39d898b04b",
                 "shasum": ""
             },
             "require": {
                 "php": ">=5.3.2"
             },
+            "time": "2013-03-07 12:15:54",
             "type": "library",
+            "extra": {
+                "branch-alias": {
+                    "dev-master": "1.1.x-dev"
+                }
+            },
             "autoload": {
                 "psr-0": {
                     "Doctrine\\Common\\Collections\\": "lib/"
@@ -162,7 +298,7 @@
                     "homepage": "http://www.jwage.com/"
                 },
                 {
-                    "name": "Guilherme Blanco",
+                    "name": "Christoph Dorn",
                     "email": "guilhermeblanco@gmail.com",
                     "homepage": "http://www.instaclick.com"
                 },
@@ -175,9 +311,9 @@
                     "email": "kontakt@beberlei.de"
                 },
                 {
-                    "name": "Johannes Schmitt",
+                    "name": "Johannes M. Schmitt",
                     "email": "schmittjoh@gmail.com",
-                    "homepage": "https://github.com/schmittjoh",
+                    "homepage": "http://jmsyst.com",
                     "role": "Developer of wrapped JMSSerializerBundle"
                 }
             ],
@@ -187,8 +323,7 @@
                 "array",
                 "collections",
                 "iterator"
-            ],
-            "time": "2013-01-12 16:36:50"
+            ]
         },
         {
             "name": "doctrine/common",
@@ -196,12 +331,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/doctrine/common.git",
-                "reference": "e211821c719d33ad2cd1186fafb4dadb5f74d6ed"
+                "reference": "d7987c96675e153638729383577090feed9854f1"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/doctrine/common/zipball/e211821c719d33ad2cd1186fafb4dadb5f74d6ed",
-                "reference": "e211821c719d33ad2cd1186fafb4dadb5f74d6ed",
+                "url": "https://api.github.com/repos/doctrine/common/zipball/d7987c96675e153638729383577090feed9854f1",
+                "reference": "d7987c96675e153638729383577090feed9854f1",
                 "shasum": ""
             },
             "require": {
@@ -212,6 +347,7 @@
                 "doctrine/lexer": "1.*",
                 "php": ">=5.3.2"
             },
+            "time": "2013-03-11 00:27:11",
             "type": "library",
             "extra": {
                 "branch-alias": {
@@ -249,7 +385,7 @@
                 {
                     "name": "Johannes Schmitt",
                     "email": "schmittjoh@gmail.com",
-                    "homepage": "https://github.com/schmittjoh",
+                    "homepage": "http://jmsyst.com",
                     "role": "Developer of wrapped JMSSerializerBundle"
                 }
             ],
@@ -261,27 +397,32 @@
                 "eventmanager",
                 "persistence",
                 "spl"
-            ],
-            "time": "2013-02-19 09:37:33"
+            ]
         },
         {
             "name": "doctrine/inflector",
-            "version": "v1.0",
+            "version": "dev-master",
             "source": {
                 "type": "git",
                 "url": "https://github.com/doctrine/inflector.git",
-                "reference": "v1.0"
+                "reference": "7314da6f9141705f0528c8b72546cb8aeea54ae8"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://github.com/doctrine/inflector/archive/v1.0.zip",
-                "reference": "v1.0",
+                "url": "https://api.github.com/repos/doctrine/inflector/zipball/7314da6f9141705f0528c8b72546cb8aeea54ae8",
+                "reference": "7314da6f9141705f0528c8b72546cb8aeea54ae8",
                 "shasum": ""
             },
             "require": {
                 "php": ">=5.3.2"
             },
+            "time": "2013-03-09 20:00:29",
             "type": "library",
+            "extra": {
+                "branch-alias": {
+                    "dev-master": "1.0.x-dev"
+                }
+            },
             "autoload": {
                 "psr-0": {
                     "Doctrine\\Common\\Inflector\\": "lib/"
@@ -313,7 +454,7 @@
                 {
                     "name": "Johannes Schmitt",
                     "email": "schmittjoh@gmail.com",
-                    "homepage": "https://github.com/schmittjoh",
+                    "homepage": "http://jmsyst.com",
                     "role": "Developer of wrapped JMSSerializerBundle"
                 }
             ],
@@ -321,30 +462,35 @@
             "homepage": "http://www.doctrine-project.org",
             "keywords": [
                 "inflection",
-                "pluarlize",
-                "singuarlize",
+                "pluralize",
+                "singularize",
                 "string"
-            ],
-            "time": "2013-01-10 21:49:15"
+            ]
         },
         {
             "name": "doctrine/lexer",
-            "version": "v1.0",
+            "version": "dev-master",
             "source": {
                 "type": "git",
                 "url": "https://github.com/doctrine/lexer.git",
-                "reference": "v1.0"
+                "reference": "bc0e1f0cc285127a38c6c8ea88bc5dba2fd53e94"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://github.com/doctrine/lexer/archive/v1.0.zip",
-                "reference": "v1.0",
+                "url": "https://api.github.com/repos/doctrine/lexer/zipball/bc0e1f0cc285127a38c6c8ea88bc5dba2fd53e94",
+                "reference": "bc0e1f0cc285127a38c6c8ea88bc5dba2fd53e94",
                 "shasum": ""
             },
             "require": {
                 "php": ">=5.3.2"
             },
+            "time": "2013-03-07 12:15:25",
             "type": "library",
+            "extra": {
+                "branch-alias": {
+                    "dev-master": "1.0.x-dev"
+                }
+            },
             "autoload": {
                 "psr-0": {
                     "Doctrine\\Common\\Lexer\\": "lib/"
@@ -356,7 +502,7 @@
             ],
             "authors": [
                 {
-                    "name": "Guilherme Blanco",
+                    "name": "Christoph Dorn",
                     "email": "guilhermeblanco@gmail.com",
                     "homepage": "http://www.instaclick.com"
                 },
@@ -365,9 +511,9 @@
                     "email": "roman@code-factory.org"
                 },
                 {
-                    "name": "Johannes Schmitt",
+                    "name": "Johannes M. Schmitt",
                     "email": "schmittjoh@gmail.com",
-                    "homepage": "https://github.com/schmittjoh",
+                    "homepage": "http://jmsyst.com",
                     "role": "Developer of wrapped JMSSerializerBundle"
                 }
             ],
@@ -376,8 +522,7 @@
             "keywords": [
                 "lexer",
                 "parser"
-            ],
-            "time": "2013-01-12 18:59:04"
+            ]
         },
         {
             "name": "egulias/listeners-debug-command-bundle",
@@ -398,6 +543,7 @@
                 "php": ">=5.3.3",
                 "symfony/symfony": ">=2.0"
             },
+            "time": "2013-01-30 15:40:58",
             "type": "symfony-bundle",
             "autoload": {
                 "psr-0": {
@@ -418,8 +564,7 @@
             "homepage": "https://github.com/egulias/ListenersDebugCommandBundle.git",
             "keywords": [
                 "listener events"
-            ],
-            "time": "2013-01-30 15:40:58"
+            ]
         },
         {
             "name": "ezsystems/demobundle",
@@ -428,18 +573,19 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/ezsystems/DemoBundle.git",
-                "reference": "1232d73c137ee0d5f54781551ac800482a2ac90d"
+                "reference": "96bab0d0343c57e4cf714740dce4489980f551d3"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/ezsystems/DemoBundle/zipball/1232d73c137ee0d5f54781551ac800482a2ac90d",
-                "reference": "1232d73c137ee0d5f54781551ac800482a2ac90d",
+                "url": "https://api.github.com/repos/ezsystems/DemoBundle/zipball/96bab0d0343c57e4cf714740dce4489980f551d3",
+                "reference": "96bab0d0343c57e4cf714740dce4489980f551d3",
                 "shasum": ""
             },
             "require": {
                 "ezsystems/ezpublish-kernel": "dev-master",
                 "php": ">=5.3.3"
             },
+            "time": "2013-03-12 09:02:16",
             "type": "library",
             "autoload": {
                 "psr-0": {
@@ -456,8 +602,7 @@
                     "homepage": "https://github.com/ezsystems/DemoBundle/graphs/contributors"
                 }
             ],
-            "description": "Demo bundle for eZ Publish Platform",
-            "time": "2013-02-28 11:30:18"
+            "description": "Demo bundle for eZ Publish Platform"
         },
         {
             "name": "ezsystems/ezpublish-kernel",
@@ -465,12 +610,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/ezsystems/ezpublish-kernel.git",
-                "reference": "1dbc98bb75d4d5c0c905f06a04a08572ef1c634c"
+                "reference": "d950420821afaa801bcc7d80a032807983c7aa1c"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/ezsystems/ezpublish-kernel/zipball/1dbc98bb75d4d5c0c905f06a04a08572ef1c634c",
-                "reference": "1dbc98bb75d4d5c0c905f06a04a08572ef1c634c",
+                "url": "https://api.github.com/repos/ezsystems/ezpublish-kernel/zipball/d950420821afaa801bcc7d80a032807983c7aa1c",
+                "reference": "d950420821afaa801bcc7d80a032807983c7aa1c",
                 "shasum": ""
             },
             "require": {
@@ -506,6 +651,7 @@
                 "ezsystems/ezpublish-legacy": "dev-master",
                 "mikey179/vfsstream": "1.1.0"
             },
+            "time": "2013-03-08 08:09:59",
             "type": "library",
             "autoload": {
                 "psr-0": {
@@ -517,8 +663,7 @@
                 "GPL-2.0"
             ],
             "description": "eZ Publish API and kernel. This is the heart of eZ Publish 5.",
-            "homepage": "http://share.ez.no",
-            "time": "2013-03-07 10:57:30"
+            "homepage": "http://share.ez.no"
         },
         {
             "name": "kriswallsmith/assetic",
@@ -557,6 +702,7 @@
                 "ptachoire/cssembed": "Assetic provides the integration with phpcssembed to embed data uris",
                 "twig/twig": "Assetic provides the integration with the Twig templating engine"
             },
+            "time": "2013-03-05 17:56:54",
             "type": "library",
             "extra": {
                 "branch-alias": {
@@ -588,8 +734,7 @@
                 "assets",
                 "compression",
                 "minification"
-            ],
-            "time": "2013-03-05 17:56:54"
+            ]
         },
         {
             "name": "kriswallsmith/buzz",
@@ -614,6 +759,7 @@
             "suggest": {
                 "ext-curl": "*"
             },
+            "time": "2013-03-06 06:11:47",
             "type": "library",
             "autoload": {
                 "psr-0": {
@@ -636,8 +782,7 @@
             "keywords": [
                 "curl",
                 "http client"
-            ],
-            "time": "2013-03-06 06:11:47"
+            ]
         },
         {
             "name": "monolog/monolog",
@@ -669,6 +814,7 @@
                 "mlehner/gelf-php": "Allow sending log messages to a GrayLog2 server",
                 "raven/raven": "Allow sending log messages to a Sentry server"
             },
+            "time": "2013-02-26 10:18:11",
             "type": "library",
             "extra": {
                 "branch-alias": {
@@ -698,8 +844,7 @@
                 "log",
                 "logging",
                 "psr-3"
-            ],
-            "time": "2013-02-26 10:18:11"
+            ]
         },
         {
             "name": "psr/log",
@@ -715,6 +860,7 @@
                 "reference": "1.0.0",
                 "shasum": ""
             },
+            "time": "2012-12-21 11:40:51",
             "type": "library",
             "autoload": {
                 "psr-0": {
@@ -736,8 +882,7 @@
                 "log",
                 "psr",
                 "psr-3"
-            ],
-            "time": "2012-12-21 11:40:51"
+            ]
         },
         {
             "name": "qafoo/rmf",
@@ -753,14 +898,14 @@
                 "reference": "1.0.0",
                 "shasum": ""
             },
+            "time": "2012-09-03 18:24:11",
             "type": "library",
             "autoload": {
                 "psr-0": {
                     "Qafoo\\RMF": "src/main/"
                 }
             },
-            "description": "Very simple VC framework which makes it easy to build HTTP applications / REST webservices",
-            "time": "2012-09-03 18:24:11"
+            "description": "Very simple VC framework which makes it easy to build HTTP applications / REST webservices"
         },
         {
             "name": "sensio/generator-bundle",
@@ -786,6 +931,7 @@
                 "symfony/doctrine-bridge": ">=2.2,<3.0",
                 "twig/twig": ">=1.11.0,<2.0"
             },
+            "time": "2013-02-22 17:59:21",
             "type": "symfony-bundle",
             "extra": {
                 "branch-alias": {
@@ -807,8 +953,7 @@
                     "email": "fabien@symfony.com"
                 }
             ],
-            "description": "This bundle generates code for you",
-            "time": "2013-02-22 17:59:21"
+            "description": "This bundle generates code for you"
         },
         {
             "name": "swiftmailer/swiftmailer",
@@ -827,6 +972,7 @@
             "require": {
                 "php": ">=5.2.4"
             },
+            "time": "2013-02-04 10:09:01",
             "type": "library",
             "extra": {
                 "branch-alias": {
@@ -856,8 +1002,7 @@
             "keywords": [
                 "mail",
                 "mailer"
-            ],
-            "time": "2013-02-04 10:09:01"
+            ]
         },
         {
             "name": "symfony-cmf/routing",
@@ -879,6 +1024,7 @@
                 "symfony/http-kernel": ">=2.1,<2.3-dev",
                 "symfony/routing": ">=2.1,<2.3-dev"
             },
+            "time": "2013-03-06 09:12:29",
             "type": "library",
             "extra": {
                 "branch-alias": {
@@ -905,8 +1051,7 @@
             "keywords": [
                 "database",
                 "routing"
-            ],
-            "time": "2013-03-06 09:12:29"
+            ]
         },
         {
             "name": "symfony/assetic-bundle",
@@ -940,6 +1085,7 @@
             "suggest": {
                 "symfony/twig-bundle": ">=2.1.0,<2.3-dev"
             },
+            "time": "2013-03-05 04:14:20",
             "type": "symfony-bundle",
             "extra": {
                 "branch-alias": {
@@ -968,8 +1114,7 @@
                 "assets",
                 "compression",
                 "minification"
-            ],
-            "time": "2013-03-05 04:14:20"
+            ]
         },
         {
             "name": "symfony/monolog-bundle",
@@ -978,12 +1123,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/symfony/MonologBundle.git",
-                "reference": "v2.2.0"
+                "reference": "1be60b1bfefea802732710a3af3166f7ea1ecf51"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/symfony/MonologBundle/zipball/v2.2.0",
-                "reference": "v2.2.0",
+                "url": "https://api.github.com/repos/symfony/MonologBundle/zipball/1be60b1bfefea802732710a3af3166f7ea1ecf51",
+                "reference": "1be60b1bfefea802732710a3af3166f7ea1ecf51",
                 "shasum": ""
             },
             "require": {
@@ -996,6 +1141,7 @@
             "require-dev": {
                 "symfony/yaml": ">=2.2-beta2,<3.0"
             },
+            "time": "2013-03-12 10:42:54",
             "type": "symfony-bundle",
             "extra": {
                 "branch-alias": {
@@ -1026,8 +1172,7 @@
             "keywords": [
                 "log",
                 "logging"
-            ],
-            "time": "2013-02-23 17:18:24"
+            ]
         },
         {
             "name": "symfony/swiftmailer-bundle",
@@ -1055,6 +1200,7 @@
                 "symfony/http-kernel": ">=2.1.0,<2.3-dev",
                 "symfony/yaml": ">=2.1.0,<2.3-dev"
             },
+            "time": "2013-01-08 20:24:29",
             "type": "symfony-bundle",
             "extra": {
                 "branch-alias": {
@@ -1081,8 +1227,7 @@
                 }
             ],
             "description": "Symfony SwiftmailerBundle",
-            "homepage": "http://symfony.com",
-            "time": "2013-01-08 20:24:29"
+            "homepage": "http://symfony.com"
         },
         {
             "name": "symfony/symfony",
@@ -1147,6 +1292,7 @@
                 "monolog/monolog": ">=1.3,<2.0",
                 "propel/propel1": "1.6.*"
             },
+            "time": "2013-03-01 06:52:29",
             "type": "library",
             "extra": {
                 "branch-alias": {
@@ -1180,8 +1326,7 @@
             "homepage": "http://symfony.com",
             "keywords": [
                 "framework"
-            ],
-            "time": "2013-03-01 06:52:29"
+            ]
         },
         {
             "name": "tedivm/stash",
@@ -1200,6 +1345,7 @@
             "require": {
                 "php": ">=5.3.0"
             },
+            "time": "2013-03-03 00:18:55",
             "type": "library",
             "autoload": {
                 "psr-0": {
@@ -1228,8 +1374,7 @@
                 "performance",
                 "scalability",
                 "sessions"
-            ],
-            "time": "2013-03-03 00:18:55"
+            ]
         },
         {
             "name": "tedivm/stash-bundle",
@@ -1252,6 +1397,7 @@
                 "symfony/yaml": ">=2.2,<3.0",
                 "tedivm/stash": "dev-master#071352c5905706b74b9b2fb925493935975e4d25"
             },
+            "time": "2013-03-03 11:30:46",
             "type": "symfony-bundle",
             "autoload": {
                 "psr-0": {
@@ -1280,8 +1426,7 @@
             ],
             "support": {
                 "source": "https://github.com/andrerom/TedivmStashBundle/tree/blackhole"
-            },
-            "time": "2013-03-03 11:30:46"
+            }
         },
         {
             "name": "twig/extensions",
@@ -1289,17 +1434,18 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/fabpot/Twig-extensions.git",
-                "reference": "921799aaf05f88af749d72912d6b154dfeb9a03e"
+                "reference": "v1.0.0"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/fabpot/Twig-extensions/zipball/921799aaf05f88af749d72912d6b154dfeb9a03e",
-                "reference": "921799aaf05f88af749d72912d6b154dfeb9a03e",
+                "url": "https://api.github.com/repos/fabpot/Twig-extensions/zipball/v1.0.0",
+                "reference": "v1.0.0",
                 "shasum": ""
             },
             "require": {
                 "twig/twig": "1.*"
             },
+            "time": "2013-02-28 14:21:30",
             "type": "library",
             "extra": {
                 "branch-alias": {
@@ -1327,8 +1473,7 @@
                 "debug",
                 "i18n",
                 "text"
-            ],
-            "time": "2013-02-28 14:21:30"
+            ]
         },
         {
             "name": "twig/twig",
@@ -1336,17 +1481,18 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/fabpot/Twig.git",
-                "reference": "b6c2171579b4ab8c193322796ef757a185729cb8"
+                "reference": "ba67e2cf8e2ca6cada1de5a316a724df648c52ac"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/fabpot/Twig/zipball/b6c2171579b4ab8c193322796ef757a185729cb8",
-                "reference": "b6c2171579b4ab8c193322796ef757a185729cb8",
+                "url": "https://api.github.com/repos/fabpot/Twig/zipball/ba67e2cf8e2ca6cada1de5a316a724df648c52ac",
+                "reference": "ba67e2cf8e2ca6cada1de5a316a724df648c52ac",
                 "shasum": ""
             },
             "require": {
                 "php": ">=5.2.4"
             },
+            "time": "2013-03-10 07:23:01",
             "type": "library",
             "extra": {
                 "branch-alias": {
@@ -1376,8 +1522,7 @@
             "homepage": "http://twig.sensiolabs.org",
             "keywords": [
                 "templating"
-            ],
-            "time": "2013-03-07 06:57:14"
+            ]
         },
         {
             "name": "zetacomponents/archive",
@@ -1399,13 +1544,13 @@
             "require-dev": {
                 "zetacomponents/unit-test": "*"
             },
+            "time": "2012-05-21 09:54:03",
             "type": "library",
             "autoload": {
                 "classmap": [
                     "src"
                 ]
-            },
-            "time": "2012-05-21 09:54:03"
+            }
         },
         {
             "name": "zetacomponents/authentication",
@@ -1427,13 +1572,13 @@
             "require-dev": {
                 "zetacomponents/unit-test": "*"
             },
+            "time": "2012-05-21 09:55:21",
             "type": "library",
             "autoload": {
                 "classmap": [
                     "src"
                 ]
-            },
-            "time": "2012-05-21 09:55:21"
+            }
         },
         {
             "name": "zetacomponents/base",
@@ -1452,13 +1597,13 @@
             "require-dev": {
                 "zetacomponents/unit-test": "*"
             },
+            "time": "2012-05-21 11:21:36",
             "type": "library",
             "autoload": {
                 "classmap": [
                     "src"
                 ]
-            },
-            "time": "2012-05-21 11:21:36"
+            }
         },
         {
             "name": "zetacomponents/cache",
@@ -1480,13 +1625,13 @@
             "require-dev": {
                 "zetacomponents/unit-test": "*"
             },
+            "time": "2012-05-21 09:55:29",
             "type": "library",
             "autoload": {
                 "classmap": [
                     "src"
                 ]
-            },
-            "time": "2012-05-21 09:55:29"
+            }
         },
         {
             "name": "zetacomponents/configuration",
@@ -1508,13 +1653,13 @@
             "require-dev": {
                 "zetacomponents/unit-test": "*"
             },
+            "time": "2012-05-21 09:55:32",
             "type": "library",
             "autoload": {
                 "classmap": [
                     "src"
                 ]
-            },
-            "time": "2012-05-21 09:55:32"
+            }
         },
         {
             "name": "zetacomponents/console-tools",
@@ -1536,13 +1681,13 @@
             "require-dev": {
                 "zetacomponents/unit-test": "*"
             },
+            "time": "2012-05-21 09:55:34",
             "type": "library",
             "autoload": {
                 "classmap": [
                     "src"
                 ]
-            },
-            "time": "2012-05-21 09:55:34"
+            }
         },
         {
             "name": "zetacomponents/database",
@@ -1564,13 +1709,13 @@
             "require-dev": {
                 "zetacomponents/unit-test": "*"
             },
+            "time": "2012-05-21 09:55:40",
             "type": "library",
             "autoload": {
                 "classmap": [
                     "src"
                 ]
-            },
-            "time": "2012-05-21 09:55:40"
+            }
         },
         {
             "name": "zetacomponents/debug",
@@ -1592,13 +1737,13 @@
             "require-dev": {
                 "zetacomponents/unit-test": "*"
             },
+            "time": "2012-05-21 09:55:45",
             "type": "library",
             "autoload": {
                 "classmap": [
                     "src"
                 ]
-            },
-            "time": "2012-05-21 09:55:45"
+            }
         },
         {
             "name": "zetacomponents/event-log",
@@ -1614,6 +1759,7 @@
                 "reference": "1.4",
                 "shasum": ""
             },
+            "time": "2009-06-29 03:55:08",
             "type": "library",
             "autoload": {
                 "classmap": [
@@ -1657,8 +1803,7 @@
                 }
             ],
             "description": "Allows you to log events or audit trails into files or other storage spaces in different formats.",
-            "homepage": "https://github.com/zetacomponents",
-            "time": "2009-06-29 03:55:08"
+            "homepage": "https://github.com/zetacomponents"
         },
         {
             "name": "zetacomponents/feed",
@@ -1680,13 +1825,13 @@
             "require-dev": {
                 "zetacomponents/unit-test": "*"
             },
+            "time": "2012-05-21 09:55:58",
             "type": "library",
             "autoload": {
                 "classmap": [
                     "src"
                 ]
-            },
-            "time": "2012-05-21 09:55:58"
+            }
         },
         {
             "name": "zetacomponents/image-analysis",
@@ -1708,6 +1853,7 @@
             "require-dev": {
                 "zetacomponents/unit-test": "*"
             },
+            "time": "2012-05-21 09:56:09",
             "type": "library",
             "autoload": {
                 "classmap": [
@@ -1750,8 +1896,7 @@
                 }
             ],
             "description": "This class allows you to analyse image files in different ways. At least the MIME type of the file is returned. In some cases (JPEG, TIFF and GIF) additional information is gathered as well.",
-            "homepage": "https://github.com/zetacomponents",
-            "time": "2012-05-21 09:56:09"
+            "homepage": "https://github.com/zetacomponents"
         },
         {
             "name": "zetacomponents/image-conversion",
@@ -1774,6 +1919,7 @@
             "require-dev": {
                 "zetacomponents/unit-test": "*"
             },
+            "time": "2012-05-28 07:48:05",
             "type": "library",
             "autoload": {
                 "classmap": [
@@ -1816,8 +1962,7 @@
                 }
             ],
             "description": "A set of classes to apply different filters on images, such as colour changes, resizing and special effects.",
-            "homepage": "https://github.com/zetacomponents",
-            "time": "2012-05-28 07:48:05"
+            "homepage": "https://github.com/zetacomponents"
         },
         {
             "name": "zetacomponents/mail",
@@ -1839,13 +1984,13 @@
             "require-dev": {
                 "zetacomponents/unit-test": "*"
             },
+            "time": "2012-05-21 09:56:15",
             "type": "library",
             "autoload": {
                 "classmap": [
                     "src"
                 ]
-            },
-            "time": "2012-05-21 09:56:15"
+            }
         },
         {
             "name": "zetacomponents/mvc-authentication-tiein",
@@ -1861,13 +2006,13 @@
                 "reference": "9bae3a7313e2ef7f53ef1f394276acc3fde0f80e",
                 "shasum": ""
             },
+            "time": "2012-05-21 09:46:53",
             "type": "library",
             "autoload": {
                 "classmap": [
                     "src"
                 ]
-            },
-            "time": "2012-05-21 09:46:53"
+            }
         },
         {
             "name": "zetacomponents/mvc-tools",
@@ -1889,13 +2034,13 @@
             "require-dev": {
                 "zetacomponents/unit-test": "*"
             },
+            "time": "2012-05-21 09:56:22",
             "type": "library",
             "autoload": {
                 "classmap": [
                     "src"
                 ]
-            },
-            "time": "2012-05-21 09:56:22"
+            }
         },
         {
             "name": "zetacomponents/persistent-object",
@@ -1917,13 +2062,13 @@
             "require-dev": {
                 "zetacomponents/unit-test": "*"
             },
+            "time": "2012-05-21 09:56:25",
             "type": "library",
             "autoload": {
                 "classmap": [
                     "src"
                 ]
-            },
-            "time": "2012-05-21 09:56:25"
+            }
         },
         {
             "name": "zetacomponents/php-generator",
@@ -1945,13 +2090,13 @@
             "require-dev": {
                 "zetacomponents/unit-test": "*"
             },
+            "time": "2012-05-21 09:56:30",
             "type": "library",
             "autoload": {
                 "classmap": [
                     "src"
                 ]
-            },
-            "time": "2012-05-21 09:56:30"
+            }
         },
         {
             "name": "zetacomponents/signal-slot",
@@ -1973,13 +2118,13 @@
             "require-dev": {
                 "zetacomponents/unit-test": "*"
             },
+            "time": "2012-05-21 14:06:23",
             "type": "library",
             "autoload": {
                 "classmap": [
                     "src"
                 ]
-            },
-            "time": "2012-05-21 14:06:23"
+            }
         },
         {
             "name": "zetacomponents/system-information",
@@ -2001,13 +2146,13 @@
             "require-dev": {
                 "zetacomponents/unit-test": "*"
             },
+            "time": "2012-05-21 09:56:41",
             "type": "library",
             "autoload": {
                 "classmap": [
                     "src"
                 ]
-            },
-            "time": "2012-05-21 09:56:41"
+            }
         },
         {
             "name": "zetacomponents/webdav",
@@ -2023,6 +2168,7 @@
                 "reference": "1.1.3",
                 "shasum": ""
             },
+            "time": "2009-11-09 05:34:07",
             "type": "library",
             "autoload": {
                 "classmap": [
@@ -2066,13 +2212,10 @@
                 }
             ],
             "description": "This component allows you to set up and run your own WebDAV (RFC 2518) server, to enable online content editing for the users of your system through the WebDAV HTTP extension.",
-            "homepage": "https://github.com/zetacomponents",
-            "time": "2009-11-09 05:34:07"
+            "homepage": "https://github.com/zetacomponents"
         }
     ],
-    "packages-dev": [
-
-    ],
+    "packages-dev": null,
     "aliases": [
 
     ],
@@ -2081,12 +2224,7 @@
         "tedivm/stash-bundle": 20,
         "ezsystems/ezpublish-kernel": 20,
         "ezsystems/demobundle": 20,
-        "egulias/listeners-debug-command-bundle": 20
-    },
-    "platform": {
-        "php": ">=5.3.3"
-    },
-    "platform-dev": [
-
-    ]
+        "egulias/listeners-debug-command-bundle": 20,
+        "behat/behat": 0
+    }
 }

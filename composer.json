@@ -27,7 +27,9 @@
         "ezsystems/ezpublish-kernel": "dev-master",
         "ezsystems/demobundle": "dev-master",
         "sensio/generator-bundle": "2.2.*",
-        "egulias/listeners-debug-command-bundle": "dev-master"
+        "egulias/listeners-debug-command-bundle": "dev-master",
+
+        "behat/behat": "2.4.*@stable"
     },
     "autoload": {
         "psr-0": {
@@ -36,6 +38,7 @@
     },
     "minimum-stability": "dev",
     "config": {
-        "process-timeout": 3000
+        "process-timeout": 3000,
+        "bin-dir": "bin/"
     }
 }
