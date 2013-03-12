@@ -17,3 +17,4 @@
 /web/var
 /web/.htaccess
 composer.phar
+/bin/
