@@ -1,5 +1,5 @@
 {
-    "hash": "ee1d7fc57b3d1fb45fdd5639c7e208c1",
+    "hash": "ffa8e68a88d8b6227fe8e7789ff851fe",
     "packages": [
         {
             "name": "alexandresalome/php-selenium",
@@ -434,6 +434,62 @@
                 "testing"
             ],
             "time": "2013-03-13 10:34:48"
+        },
+        {
+            "name": "behat/symfony2-extension",
+            "version": "dev-master",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/Behat/Symfony2Extension.git",
+                "reference": "64500e58c23c1179c625900ea38bbe46bd106f9b"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/Behat/Symfony2Extension/zipball/64500e58c23c1179c625900ea38bbe46bd106f9b",
+                "reference": "64500e58c23c1179c625900ea38bbe46bd106f9b",
+                "shasum": ""
+            },
+            "require": {
+                "behat/behat": ">=2.4,<2.5-dev",
+                "php": ">=5.3.2",
+                "symfony/framework-bundle": ">=2.0,<2.3-dev"
+            },
+            "require-dev": {
+                "behat/mink": ">=1.4,<2.5-dev",
+                "behat/mink-browserkit-driver": "1.0.*",
+                "behat/mink-extension": "1.0.*",
+                "symfony/symfony": ">=2.1,<2.3-dev"
+            },
+            "type": "behat-extension",
+            "extra": {
+                "branch-alias": {
+                    "dev-master": "1.0-dev"
+                }
+            },
+            "autoload": {
+                "psr-0": {
+                    "Behat\\Symfony2Extension": "src/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Konstantin Kudryashov",
+                    "email": "ever.zet@gmail.com",
+                    "homepage": "http://everzet.com"
+                }
+            ],
+            "description": "Symfony2 framework extension for Behat",
+            "homepage": "http://behat.org",
+            "keywords": [
+                "BDD",
+                "framework",
+                "symfony"
+            ],
+            "time": "2013-02-20 19:06:45"
         },
         {
             "name": "doctrine/annotations",
@@ -919,12 +975,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/ezsystems/ezpublish-kernel.git",
-                "reference": "d950420821afaa801bcc7d80a032807983c7aa1c"
+                "reference": "65f8a3fa5697b94277be51aa00fd9a776aa822b8"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/ezsystems/ezpublish-kernel/zipball/d950420821afaa801bcc7d80a032807983c7aa1c",
-                "reference": "d950420821afaa801bcc7d80a032807983c7aa1c",
+                "url": "https://api.github.com/repos/ezsystems/ezpublish-kernel/zipball/65f8a3fa5697b94277be51aa00fd9a776aa822b8",
+                "reference": "65f8a3fa5697b94277be51aa00fd9a776aa822b8",
                 "shasum": ""
             },
             "require": {
@@ -972,7 +1028,7 @@
             ],
             "description": "eZ Publish API and kernel. This is the heart of eZ Publish 5.",
             "homepage": "http://share.ez.no",
-            "time": "2013-03-08 08:09:59"
+            "time": "2013-03-13 14:25:42"
         },
         {
             "name": "fabpot/goutte",
