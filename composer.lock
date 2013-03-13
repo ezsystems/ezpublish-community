@@ -975,12 +975,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/ezsystems/ezpublish-kernel.git",
-                "reference": "65f8a3fa5697b94277be51aa00fd9a776aa822b8"
+                "reference": "45b671745af2ce927d736f50c205a62d2f57eae5"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/ezsystems/ezpublish-kernel/zipball/65f8a3fa5697b94277be51aa00fd9a776aa822b8",
-                "reference": "65f8a3fa5697b94277be51aa00fd9a776aa822b8",
+                "url": "https://api.github.com/repos/ezsystems/ezpublish-kernel/zipball/45b671745af2ce927d736f50c205a62d2f57eae5",
+                "reference": "45b671745af2ce927d736f50c205a62d2f57eae5",
                 "shasum": ""
             },
             "require": {
@@ -1028,7 +1028,7 @@
             ],
             "description": "eZ Publish API and kernel. This is the heart of eZ Publish 5.",
             "homepage": "http://share.ez.no",
-            "time": "2013-03-13 14:25:42"
+            "time": "2013-03-13 16:11:08"
         },
         {
             "name": "fabpot/goutte",
