@@ -27,8 +27,9 @@
         "ezsystems/ezpublish-kernel": "dev-master",
         "ezsystems/demobundle": "dev-master",
         "sensio/generator-bundle": "2.2.*",
-        "egulias/listeners-debug-command-bundle": "dev-master",
-
+        "egulias/listeners-debug-command-bundle": "dev-master"
+    },
+    "require-dev": {
         "behat/behat": "2.4.*",
         "behat/symfony2-extension": "*",
         "behat/mink-extension": "*",
