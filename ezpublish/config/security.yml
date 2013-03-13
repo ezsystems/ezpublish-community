@@ -24,11 +24,11 @@ security:
             pattern: ^/ezsetup
             security: false
 
-        ezpublish_rest:
-            pattern: ^/api/ezp/v2
-            stateless: true
-            ezpublish_http_basic:
-                realm: eZ Publish REST API
+#        ezpublish_rest:
+#            pattern: ^/api/ezp/v2
+#            stateless: true
+#            ezpublish_http_basic:
+#                realm: eZ Publish REST API
 
         ezpublish_front:
             pattern: ^/
