@@ -1,5 +1,5 @@
 {
-    "hash": "dc5e91bf4cf15307f9db937aea77dafb",
+    "hash": "cbc2f30cba7b0ca33db6ed21d160019f",
     "packages": [
         {
             "name": "doctrine/annotations",
@@ -2473,6 +2473,58 @@
             "time": "2013-03-08 10:02:27"
         },
         {
+            "name": "behat/mink-sahi-driver",
+            "version": "dev-master",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/Behat/MinkSahiDriver.git",
+                "reference": "d6214a01ef12fd2109d0d4f7064753a2ca130a6b"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/Behat/MinkSahiDriver/zipball/d6214a01ef12fd2109d0d4f7064753a2ca130a6b",
+                "reference": "d6214a01ef12fd2109d0d4f7064753a2ca130a6b",
+                "shasum": ""
+            },
+            "require": {
+                "behat/mink": ">=1.4.3,<1.5",
+                "behat/sahi-client": ">=1.1,<1.2",
+                "php": ">=5.3.1"
+            },
+            "type": "mink-driver",
+            "extra": {
+                "branch-alias": {
+                    "dev-master": "1.0.x-dev"
+                }
+            },
+            "autoload": {
+                "psr-0": {
+                    "Behat\\Mink\\Driver": "src/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Konstantin Kudryashov",
+                    "email": "ever.zet@gmail.com",
+                    "homepage": "http://everzet.com"
+                }
+            ],
+            "description": "Sahi.JS driver for Mink framework",
+            "homepage": "http://mink.behat.org/",
+            "keywords": [
+                "ajax",
+                "browser",
+                "javascript",
+                "sahi",
+                "testing"
+            ],
+            "time": "2013-03-13 10:35:29"
+        },
+        {
             "name": "behat/mink-selenium-driver",
             "version": "dev-master",
             "source": {
@@ -2524,6 +2576,57 @@
                 "testing"
             ],
             "time": "2013-03-13 10:34:48"
+        },
+        {
+            "name": "behat/sahi-client",
+            "version": "dev-buzzmaster",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/andrerom/SahiClient.git",
+                "reference": "f47e7f1eb6ccb04f49f833ed18d960542321cd2e"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/andrerom/SahiClient/zipball/f47e7f1eb6ccb04f49f833ed18d960542321cd2e",
+                "reference": "f47e7f1eb6ccb04f49f833ed18d960542321cd2e",
+                "shasum": ""
+            },
+            "require": {
+                "kriswallsmith/buzz": "dev-master",
+                "php": ">=5.3.1"
+            },
+            "type": "library",
+            "extra": {
+                "branch-alias": {
+                    "dev-master": "1.1.x-dev"
+                }
+            },
+            "autoload": {
+                "psr-0": {
+                    "Behat\\SahiClient": "src/"
+                }
+            },
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Konstantin Kudryashov",
+                    "email": "ever.zet@gmail.com",
+                    "homepage": "http://everzet.com"
+                }
+            ],
+            "description": "Sahi.js client for PHP 5.3",
+            "homepage": "http://sahi.co.in/w/",
+            "keywords": [
+                "JS",
+                "browser",
+                "testing"
+            ],
+            "support": {
+                "source": "https://github.com/andrerom/SahiClient/tree/buzzmaster"
+            },
+            "time": "2013-03-14 10:05:03"
         },
         {
             "name": "behat/symfony2-extension",
@@ -3082,14 +3185,20 @@
         }
     ],
     "aliases": [
-
+        {
+            "alias": "1.1.0",
+            "alias_normalized": "1.1.0.0",
+            "version": "dev-buzzmaster",
+            "package": "behat/sahi-client"
+        }
     ],
     "minimum-stability": "dev",
     "stability-flags": {
         "tedivm/stash-bundle": 20,
         "ezsystems/ezpublish-kernel": 20,
         "ezsystems/demobundle": 20,
-        "egulias/listeners-debug-command-bundle": 20
+        "egulias/listeners-debug-command-bundle": 20,
+        "behat/sahi-client": 20
     },
     "platform": {
         "php": ">=5.3.3"
