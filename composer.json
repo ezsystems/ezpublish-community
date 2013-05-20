@@ -19,7 +19,7 @@
     "require": {
         "php": ">=5.3.3",
         "symfony/symfony": "2.2.0-RC2",
-        "symfony/assetic-bundle": "2.1.*",
+        "symfony/assetic-bundle": "2.3.*",
         "symfony/monolog-bundle": "2.2.*",
         "symfony/swiftmailer-bundle": "2.2.*",
         "twig/extensions": "1.0.*",
