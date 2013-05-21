@@ -22,6 +22,7 @@ use Symfony\Bundle\WebProfilerBundle\WebProfilerBundle;
 use Symfony\Component\Config\Loader\LoaderInterface;
 use Sensio\Bundle\GeneratorBundle\SensioGeneratorBundle;
 use Tedivm\StashBundle\TedivmStashBundle;
+use Sensio\Bundle\DistributionBundle\SensioDistributionBundle;
 
 class EzPublishKernel extends Kernel
 {
@@ -46,6 +47,7 @@ class EzPublishKernel extends Kernel
             new EzPublishLegacyBundle(),
             new EzSystemsDemoBundle(),
             new EzPublishRestBundle(),
+            new SensioDistributionBundle(),
         );
 
         $bundles[] = new EzSystems\AdminBundle\EzSystemsEzPublishAdminBundle();
@@ -68,14 +70,20 @@ class EzPublishKernel extends Kernel
      */
     public function registerContainerConfiguration( LoaderInterface $loader )
     {
-        $loader->load( __DIR__ . '/config/config_' . $this->getEnvironment() . '.yml' );
-        try
+        $environment = $this->getEnvironment();
+        $loader->load( __DIR__ . '/config/config_' . $environment . '.yml' );
+        $configFile = __DIR__ . '/config/ezpublish_' . $environment . '.yml';
+
+        if ( !is_file( $configFile ) )
         {
-            $loader->load( __DIR__ . '/config/ezpublish_' . $this->getEnvironment() . '.yml' );
+            $configFile = __DIR__ . '/config/ezpublish_setup.yml';
         }
-        catch ( \InvalidArgumentException $e )
+
+        if ( !is_readable( $configFile ) )
         {
-            $loader->load( __DIR__ . '/config/ezpublish_setup.yml' );
+            throw new RuntimeException( "Configuration file '$configFile' is not readable." );
         }
+
+        $loader->load( $configFile );
     }
 }

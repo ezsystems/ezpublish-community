@@ -5,12 +5,16 @@ imports:
 framework:
     esi: ~
     fragments: ~
-    #translator:      { fallback: %locale% }
+    translator:      { fallback: %locale_fallback% }
     # The secret parameter is used to generate CSRF tokens
     secret:          %secret%
     router:          { resource: "%kernel.root_dir%/config/routing.yml" }
     form:            true
-    csrf_protection: false
+    csrf_protection:
+        enabled: true
+        # Note: changing this will break legacy extensions that rely on the default name to alter AJAX requests
+        # See https://jira.ez.no/browse/EZP-20783
+        field_name: ezxform_token
     validation:      { enable_annotations: true }
     templating:      { engines: ['twig', 'eztpl'] } #assets_version: SomeVersionScheme
     session: ~
@@ -18,21 +22,11 @@ framework:
         # Defaut session name is "eZSESSID{siteaccess_hash}" (unique session name per siteaccess).
         # See ezpublish.yml.example for an example on how to configure this.
 
-# Requirements for less parser
-# Mac OS X:
-# Install Node.js
-# $ sudo port install node
-# Install npm
-# $ sudo port install npm
-# Install less via npm, but globally
-# $ sudo npm install -g less
 assetic:
     debug: %kernel.debug%
     use_controller: false
     filters:
-        less:
-            node: /opt/local/bin/node
-            node_paths: [/opt/local/lib/node_modules]
+        cssrewrite: ~
 
 ez_publish_legacy:
     enabled: true
