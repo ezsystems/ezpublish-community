@@ -10,12 +10,6 @@
             "homepage": "https://github.com/ezsystems/ezpublish-community/contributors"
         }
     ],
-    "repositories": [
-        {
-            "type": "vcs",
-            "url": "https://github.com/andrerom/SahiClient.git"
-        }
-    ],
     "require": {
         "php": ">=5.3.3",
         "symfony/symfony": "2.2.*",
@@ -50,7 +44,7 @@
     "require-dev": {
         "behat/behat": "2.4.*",
         "behat/symfony2-extension": "*",
-        "behat/sahi-client": "dev-patch-1 as 1.1.0",
+        "behat/sahi-client": "dev-master as 1.1.1",
         "behat/mink-extension": "*",
         "behat/mink-goutte-driver": "*",
         "behat/mink-selenium-driver": "*",
