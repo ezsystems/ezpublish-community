@@ -83,5 +83,10 @@ class EzPublishKernel extends Kernel
         }
 
         $loader->load( $configFile );
+
+        if ( PHP_SAPI === 'cli' && is_readable( __DIR__ . '/config/cli.yml' ) )
+        {
+            $loader->load( __DIR__ . '/config/cli.yml' );
+        }
     }
 }
