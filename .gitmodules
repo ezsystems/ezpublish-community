@@ -1,3 +1,0 @@
-[submodule "src/EzSystems/AdminBundle"]
-	path = src/EzSystems/AdminBundle
-	url = git@github.com:ezsystems/AdminBundle.git
