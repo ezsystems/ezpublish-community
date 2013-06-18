@@ -18,7 +18,7 @@
         "symfony-cmf/routing": "1.0.*",
         "twig/extensions": "1.0.*",
         "tedivm/stash-bundle": "@dev",
-        "ezsystems/ezpublish-kernel": "5.1.*@dev",
+        "ezsystems/ezpublish-kernel": ">=2013.06",
         "ezsystems/demobundle": "@dev",
         "sensio/generator-bundle": "2.2.*",
         "egulias/listeners-debug-command-bundle": "1.4.*",
