@@ -3,7 +3,7 @@
         "This file locks the dependencies of your project to a known state",
         "Read more about it at http://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file"
     ],
-    "hash": "c754c7d6f7ea389166d1931ea95c725e",
+    "hash": "b7f202cd580b52f0a4c258728e268314",
     "packages": [
         {
             "name": "doctrine/common",
@@ -157,16 +157,16 @@
         },
         {
             "name": "ezsystems/ezpublish-kernel",
-            "version": "dev-master",
+            "version": "v2013.06.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/ezsystems/ezpublish-kernel.git",
-                "reference": "219f354dd0a58c9e5a8eb5a6969d5ca9b1e91368"
+                "reference": "v2013.06.0"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/ezsystems/ezpublish-kernel/zipball/219f354dd0a58c9e5a8eb5a6969d5ca9b1e91368",
-                "reference": "219f354dd0a58c9e5a8eb5a6969d5ca9b1e91368",
+                "url": "https://api.github.com/repos/ezsystems/ezpublish-kernel/zipball/v2013.06.0",
+                "reference": "v2013.06.0",
                 "shasum": ""
             },
             "require": {
@@ -221,7 +221,7 @@
             ],
             "description": "eZ Publish API and kernel. This is the heart of eZ Publish 5.",
             "homepage": "http://share.ez.no",
-            "time": "2013-06-11 10:13:35"
+            "time": "2013-06-13 09:29:31"
         },
         {
             "name": "kriswallsmith/assetic",
@@ -562,16 +562,16 @@
         },
         {
             "name": "swiftmailer/swiftmailer",
-            "version": "v5.0.0",
+            "version": "v5.0.1",
             "source": {
                 "type": "git",
                 "url": "https://github.com/swiftmailer/swiftmailer.git",
-                "reference": "v5.0.0"
+                "reference": "v5.0.1"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/swiftmailer/swiftmailer/zipball/v5.0.0",
-                "reference": "v5.0.0",
+                "url": "https://api.github.com/repos/swiftmailer/swiftmailer/zipball/v5.0.1",
+                "reference": "v5.0.1",
                 "shasum": ""
             },
             "require": {
@@ -580,7 +580,7 @@
             "type": "library",
             "extra": {
                 "branch-alias": {
-                    "dev-master": "5.0-dev"
+                    "dev-master": "5.1-dev"
                 }
             },
             "autoload": {
@@ -607,7 +607,7 @@
                 "mail",
                 "mailer"
             ],
-            "time": "2013-04-30 17:35:30"
+            "time": "2013-06-17 13:32:32"
         },
         {
             "name": "symfony-cmf/routing",
@@ -938,16 +938,16 @@
         },
         {
             "name": "tedivm/stash",
-            "version": "v0.10.3",
+            "version": "v0.10.4",
             "source": {
                 "type": "git",
                 "url": "https://github.com/tedivm/Stash.git",
-                "reference": "v0.10.3"
+                "reference": "v0.10.4"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/tedivm/Stash/zipball/v0.10.3",
-                "reference": "v0.10.3",
+                "url": "https://api.github.com/repos/tedivm/Stash/zipball/v0.10.4",
+                "reference": "v0.10.4",
                 "shasum": ""
             },
             "require": {
@@ -981,7 +981,7 @@
                 "scalability",
                 "sessions"
             ],
-            "time": "2013-03-30 23:24:06"
+            "time": "2013-06-13 07:13:33"
         },
         {
             "name": "tedivm/stash-bundle",
@@ -990,12 +990,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/tedivm/TedivmStashBundle.git",
-                "reference": "14aa3c253e45fb6db8553d08d50e44416a2eb2dc"
+                "reference": "v0.2.1"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/tedivm/TedivmStashBundle/zipball/14aa3c253e45fb6db8553d08d50e44416a2eb2dc",
-                "reference": "14aa3c253e45fb6db8553d08d50e44416a2eb2dc",
+                "url": "https://api.github.com/repos/tedivm/TedivmStashBundle/zipball/v0.2.1",
+                "reference": "v0.2.1",
                 "shasum": ""
             },
             "require": {
@@ -1031,7 +1031,7 @@
                 "sessions",
                 "symfony"
             ],
-            "time": "2013-06-07 06:20:01"
+            "time": "2013-06-16 23:57:16"
         },
         {
             "name": "twig/extensions",
@@ -2493,7 +2493,6 @@
     "minimum-stability": "stable",
     "stability-flags": {
         "tedivm/stash-bundle": 20,
-        "ezsystems/ezpublish-kernel": 20,
         "ezsystems/demobundle": 20,
         "zetacomponents/archive": 20,
         "zetacomponents/authentication": 20,
