@@ -3,7 +3,7 @@
         "This file locks the dependencies of your project to a known state",
         "Read more about it at http://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file"
     ],
-    "hash": "1a9e875c195d72696f1987b1554eb787",
+    "hash": "68bf88a00cdfd335b3633bd19f4f2d5d",
     "packages": [
         {
             "name": "doctrine/common",
@@ -157,7 +157,7 @@
         },
         {
             "name": "ezsystems/ezpublish-kernel",
-            "version": "dev-master",
+            "version": "v2013.07.1",
             "source": {
                 "type": "git",
                 "url": "https://github.com/ezsystems/ezpublish-kernel.git",
@@ -3821,7 +3821,6 @@
     "minimum-stability": "stable",
     "stability-flags": {
         "symfony-cmf/routing": 10,
-        "ezsystems/ezpublish-kernel": 20,
         "ezsystems/demobundle": 20,
         "zetacomponents/archive": 20,
         "zetacomponents/authentication": 20,
