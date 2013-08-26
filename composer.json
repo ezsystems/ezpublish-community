@@ -30,7 +30,7 @@
         "incenteev/composer-parameter-handler": "~2.0",
         "symfony-cmf/routing": "1.1.*@beta",
         "tedivm/stash-bundle": "0.2.*",
-        "ezsystems/ezpublish-kernel": "dev-master",
+        "ezsystems/ezpublish-kernel": "2013.07.*",
         "ezsystems/demobundle": "@dev",
         "egulias/listeners-debug-command-bundle": "1.4.*",
         "zetacomponents/archive": "dev-fixUnpackPHP55",
