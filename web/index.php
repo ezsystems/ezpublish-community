@@ -24,7 +24,6 @@ if ( getenv( "USE_APC_CLASSLOADER" ) )
 }
 
 require_once __DIR__ . '/../ezpublish/EzPublishKernel.php';
-require_once __DIR__ . '/../ezpublish/EzPublishCache.php';
 
 // Depending on the USE_DEBUGGING environment variable, tells whether Symfony should be loaded with debugging.
 // If not set it is activated if in "dev" environment.
@@ -49,7 +48,12 @@ if ( ( $useHttpCache = getenv( "USE_HTTP_CACHE" ) ) === false )
 // Load HTTP Cache ...
 if ( $useHttpCache )
 {
-    $kernel = new EzPublishCache( $kernel );
+    // The standard HttpCache implementation can be overidden by setting the HTTP_CACHE_CLASS environment variable.
+    if ( ( $httpCacheClass = getenv( "HTTP_CACHE_CLASS" ) ) === false )
+    {
+        $httpCacheClass = "eZ\\Bundle\\EzPublishCoreBundle\\HttpCache";
+    }
+    $kernel = new $httpCacheClass( $kernel );
 }
 
 $request = Request::createFromGlobals();
