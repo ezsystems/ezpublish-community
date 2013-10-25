@@ -39,6 +39,7 @@ class BrowserContext extends BaseFeatureContext
 
     /**
      * @Then /^(?:|I )am (?:at|on) the "([^"]*)(?:| page)"$/
+     * @Then /^(?:|I )see "([^"]*)" page$/
      */
     public function iAmOnThe( $pageIdentifier )
     {
@@ -51,6 +52,38 @@ class BrowserContext extends BaseFeatureContext
             $currentUrl,
             "Unexpected URL of the current site. Expected: '$expectedUrl'. Actual: '$currentUrl'."
         );
+    }
+
+    /**
+     * @Given /^(?:|I )click (?:on|at) "([^"]*)" link$/
+     *
+     * Can also be used @When steps
+     */
+    public function iClickAtLink( $link )
+    {
+        return array(
+            new Step\When( "I follow \"{$link}\"" )
+        );
+    }
+
+    /**
+     * @Then /^(?:|I )don\'t see links(?:|\:)$/
+     */
+    public function iDonTSeeLinks( TableNode $table )
+    {
+        $session = $this->getSession();
+        $rows = $table->getRows();
+        array_shift( $rows );   // this is needed to take the first row ( readability only )
+        $base = $this->makeXpathForBlock( 'main' );
+        foreach ( $rows as $row )
+        {
+            $link = $row[0];
+            $url = $this->literal( str_replace( ' ', '-', $link ) );
+            $literal = $this->literal( $link );
+            $el = $session->getPage()->find( "xpath", "$base//a[text() = $literal][@href]" );
+
+            Assertion::assertNull( $el, "Unexpected link found" );
+        }
     }
 
     /**
@@ -120,6 +153,125 @@ class BrowserContext extends BaseFeatureContext
             "Search for \"{$this->priorSearchPhrase}\" returned {$arg1} matches",
             $resultCountElement->getText()
         );
+    }
+
+    /**
+     * @Then /^(?:|I )see links for Content objects(?:|\:)$/
+     *
+     * $table = array(
+     *      array(
+     *          [link|object],  // mandatory
+     *          parentLocation, // optional
+     *      ),
+     *      ...
+     *  );
+     *
+     * @todo verify if the links are for objects
+     * @todo check if it has a different url alias
+     * @todo check "parent" node
+     */
+    public function iSeeLinksForContentObjects( TableNode $table )
+    {
+        $session = $this->getSession();
+        $rows = $table->getRows();
+        array_shift( $rows );   // this is needed to take the first row ( readability only )
+        $base = $this->makeXpathForBlock( 'main' );
+        foreach ( $rows as $row )
+        {
+            if( count( $row ) >= 2 )
+                list( $link, $parent ) = $row;
+            else
+                $link = $row[0];
+
+            Assertion::assertNotNull( $link, "Missing link for searching on table" );
+
+            $url = $this->literal( str_replace( ' ', '-', $link ) );
+
+            $el = $session->getPage()->find( "xpath", "$base//a[contains(@href, $url)]" );
+
+            Assertion::assertNotNull( $el, "Couldn't find a link for object '$link' with url containing '$url'" );
+        }
+    }
+
+    /**
+     * @Then /^(?:|I )see links for Content objects in following order(?:|\:)$/
+     *
+     *  @todo check "parent" node
+     */
+    public function iSeeLinksForContentObjectsInFollowingOrder( TableNode $table )
+    {
+        $page = $this->getSession()->getPage();
+        $base = $this->makeXpathForBlock( 'main' );
+        // get all links
+        $links = $page->findAll( "xpath", "$base//a[@href]" );
+
+        $i = $passed = 0;
+        $last = '';
+        $rows = $table->getRows();
+        array_shift( $rows );   // this is needed to take the first row ( readability only )
+
+        foreach ( $rows as $row )
+        {
+            // get values ( if there is no $parent defined on gherkin there is
+            // no problem since it will only be tested if it is not empty
+            if( count( $row ) >= 2 )
+                list( $name, $parent ) = $row;
+            else
+                $name = $row[0];
+
+            $url = str_replace( ' ', '-', $name );
+
+            // find the object
+            while(
+                !empty( $links[$i] )
+                && strpos( $links[$i]->getAttribute( "href" ), $url ) === false
+                && strpos( $links[$i]->getText(), $name ) === false
+            )
+                $i++;
+
+            $test = !null;
+            if( empty( $links[$i] ) )
+                $test = null;
+
+            // check if the link was found or the $i >= $count
+            Assertion::assertNotNull( $test, "Couldn't find '$name' after '$last'" );
+
+            $passed++;
+            $last = $name;
+        }
+
+        Assertion::assertEquals(
+            count( $rows ),
+            $passed,
+            "Expected to evaluate '{count( $rows )}' links evaluated '{$passed}'"
+        );
+    }
+
+    /**
+     * @Then /^(?:|I )see links in(?:|\:)$/
+     */
+    public function iSeeLinksIn( TableNode $table )
+    {
+        $session = $this->getSession();
+        $rows = $table->getRows();
+        array_shift( $rows );   // this is needed to take the first row ( readability only )
+        foreach ( $rows as $row )
+        {
+            // prepare data
+            Assertion::assertEquals( count( $row ), 2, "The table should be have array with link and tag" );
+            list( $link, $type ) = $row;
+
+            // make xpath
+            $literal = $this->literal( $link );
+            $xpath = $this->concatTagsWithXpath(
+                $this->getTagsFor( $type ),
+                "//a[@href and text() = $literal]"
+            );
+
+            $el = $session->getPage()->find( "xpath", $xpath );
+
+            Assertion::assertNotNull( $el, "Couldn't find a link with '$link' text" );
+        }
     }
 
     /**
