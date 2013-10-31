@@ -43,21 +43,6 @@ class FeatureContext extends MinkContext implements KernelAwareInterface
     protected $pageIdentifierMap = array();
 
     /**
-     * This will tell us which containers (design) to search, should be set by child classes.
-     *
-     * ex:
-     * $mainAttributes = array(
-     *      "content"   => "thisIsATag",
-     *      "column"    => array( "class" => "thisIstheClassOfTheColumns" ),
-     *      "menu"      => "//xpath/for/the[menu]",
-     *      ...
-     * );
-     *
-     * @var array This will have a ( identifier => array )
-     */
-    public $mainAttributes = array();
-
-    /**
      * @var string
      */
     protected $priorSearchPhrase = '';
@@ -111,120 +96,6 @@ class FeatureContext extends MinkContext implements KernelAwareInterface
     }
 
     /**
-     * This method works as a complement to the $mainAttributes var
-     *
-     * @param  string $block This should be an identifier for the block to use
-     *
-     * @return string
-     *
-     * @see $this->mainAttributes
-     */
-    public function makeXpathForBlock( $block = 'main' )
-    {
-        if ( !isset( $this->mainAttributes[strtolower( $block )] ) )
-            return "";
-
-        $xpath = $this->mainAttributes[strtolower( $block )];
-
-        // check if value is a composed array
-        if ( is_array( $xpath ) )
-        {
-            $nuXpath = "";
-            // verify if there is a tag
-            if ( isset( $xpath['tag'] ) )
-            {
-                if ( strpos( $xpath, "/" ) === 0 || strpos( $xpath, "(" ) === 0 )
-                    $nuXpath = $xpath['tag'];
-                else
-                    $nuXpath = "//" . $xpath['tag'];
-
-                unset( $xpath['tag'] );
-            }
-            else
-                $nuXpath = "//*";
-
-            foreach ( $xpath as $key => $value )
-            {
-                switch ( $key ) {
-                case "text":
-                    $att = "text()";
-                    break;
-                default:
-                    $att = "@$key";
-                }
-                $nuXpath .= "[contains($att, {$this->literal( $value )})]";
-            }
-
-            return $nuXpath;
-        }
-
-        //  if the string is an Xpath
-        if ( strpos( $xpath, "/" ) === 0 || strpos( $xpath, "(" ) === 0  )
-            return $xpath;
-
-        // if xpath is an simple tag
-        return "//$xpath";
-    }
-
-    /**
-     * With this function we get a centralized way to define what are the possible
-     * tags for a type of data and return them as a xpath search
-     *
-     * @param  string $type Type of text (ie: if header/title, or list element, ...)
-     *
-     * @return string Xpath string for searching elements insed those tags
-     *
-     * @throws PendingException If the $type isn't defined yet
-     */
-    public function getTagsFor( $type )
-    {
-        switch ( strtolower( $type ) ){
-        case "topic":
-        case "header":
-        case "title":
-            return array( "h1", "h2", "h3" );
-        case "list":
-            return array( "li" );
-        }
-
-        throw new PendingException( "Tag's for '$type' type not defined" );
-    }
-
-    /**
-     * This should be seen as a complement to self::getTagsFor() where it will
-     * get the respective tags from there and will make a valid Xpath string with
-     * all OR's needed
-     *
-     * @param array  $tags  Array of tags strings (ex: array( "a", "p", "h3", "table" ) )
-     * @param string $xpath String to be concatenated to each tag
-     *
-     * @return string
-     */
-    public function concatTagsWithXpath( array $tags, $xpath = null )
-    {
-        $finalXpath = "";
-        for ( $i = 0; !empty( $tags[$i] ); $i++ )
-        {
-            $finalXpath .= "//{$tags[$i]}$xpath";
-            if ( !empty($tags[$i + 1]) )
-                $finalXpath .= " | ";
-        }
-
-        return $finalXpath;
-    }
-
-    /**
-     * This is a simple shortcut for
-     * $this->getSession()->getPage()->getSelectorsHandler()->xpathLiteral()
-     *
-     * @param string $text
-     */
-    public function literal( $text )
-    {
-        return $this->getSession()->getSelectorsHandler()->xpathLiteral( $text );
-    }
-
-    /**
      * Returns the path associated with $pageIdentifier
      *
      * @param string $pageIdentifier
@@ -261,7 +132,7 @@ class FeatureContext extends MinkContext implements KernelAwareInterface
     /**
      * @Given /^test is pending(?:| (.+))$/
      */
-    public function testIsPendingDesign( $reason )
+    public function testIsPending( $reason )
     {
         throw new PendingException( $reason );
     }
