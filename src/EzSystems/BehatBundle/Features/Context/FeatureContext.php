@@ -16,6 +16,7 @@ use Behat\Behat\Event\ScenarioEvent;
 use Behat\MinkExtension\Context\MinkContext;
 use Behat\Symfony2Extension\Context\KernelAwareInterface;
 use eZ\Publish\Core\MVC\Symfony\SiteAccess;
+use Behat\Behat\Exception\PendingException;
 use PHPUnit_Framework_Assert as Assertion;
 use Symfony\Component\HttpKernel\KernelInterface;
 
@@ -29,12 +30,12 @@ class FeatureContext extends MinkContext implements KernelAwareInterface
     /**
      * @var \Symfony\Component\HttpKernel\KernelInterface
      */
-    private $kernel;
+    protected $kernel;
 
     /**
      * @var array
      */
-    private $parameters;
+    protected $parameters;
 
     /**
      * @var array Array to map identifier to urls, should be set by child classes.
@@ -44,7 +45,7 @@ class FeatureContext extends MinkContext implements KernelAwareInterface
     /**
      * @var string
      */
-    private $priorSearchPhrase = '';
+    protected $priorSearchPhrase = '';
 
     /**
      * Initializes context with parameters from behat.yml.
@@ -126,5 +127,13 @@ class FeatureContext extends MinkContext implements KernelAwareInterface
         }
 
         return $url;
+    }
+
+    /**
+     * @Given /^test is pending(?:| (.+))$/
+     */
+    public function testIsPending( $reason )
+    {
+        throw new PendingException( $reason );
     }
 }
