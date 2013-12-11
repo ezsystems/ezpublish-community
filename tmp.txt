@@ -1,0 +1,177 @@
+Level 0
+{
+  Began at:
+  /home/bertrand/www/ezpublish-legacy/kernel/classes/ezcontentupload.php:620 eZDBInterface::begin
+    ->/home/bertrand/www/ezpublish-legacy/extension/ezoe/modules/ezoe/upload.php:114 eZContentUpload::handleUpload
+    Level 1
+    {
+      Began at:
+      /home/bertrand/www/ezpublish-legacy/kernel/classes/ezcontentclass.php:303 eZDBInterface::begin
+        ->/home/bertrand/www/ezpublish-legacy/kernel/classes/ezcontentclass.php:263 eZContentClass::instantiate
+        Level 2
+        {
+          Began at:
+          /home/bertrand/www/ezpublish-legacy/kernel/classes/ezcontentobject.php:260 eZDBInterface::begin
+            ->/home/bertrand/www/ezpublish-legacy/kernel/classes/ezcontentclass.php:305 eZContentObject::store
+          And commited at:
+          /home/bertrand/www/ezpublish-legacy/kernel/classes/ezcontentobject.php:263 eZDBInterface::commit
+            ->/home/bertrand/www/ezpublish-legacy/kernel/classes/ezcontentclass.php:305 eZContentObject::store
+        }
+        Level 2
+        {
+          Began at:
+          /home/bertrand/www/ezpublish-legacy/kernel/classes/ezcontentobject.php:6545 eZDBInterface::begin
+            ->/home/bertrand/www/ezpublish-legacy/kernel/classes/ezcontentclass.php:306 eZContentObject::assignDefaultStates
+          And commited at:
+          /home/bertrand/www/ezpublish-legacy/kernel/classes/ezcontentobject.php:6554 eZDBInterface::commit
+            ->/home/bertrand/www/ezpublish-legacy/kernel/classes/ezcontentclass.php:306 eZContentObject::assignDefaultStates
+        }
+        Level 2
+        {
+          Began at:
+          /home/bertrand/www/ezpublish-legacy/kernel/classes/ezcontentobject.php:502 eZDBInterface::begin
+            ->/home/bertrand/www/ezpublish-legacy/kernel/classes/ezcontentclass.php:307 eZContentObject::setName
+          And commited at:
+          /home/bertrand/www/ezpublish-legacy/kernel/classes/ezcontentobject.php:533 eZDBInterface::commit
+            ->/home/bertrand/www/ezpublish-legacy/kernel/classes/ezcontentclass.php:307 eZContentObject::setName
+        }
+        Level 2
+        {
+          Began at:
+          /home/bertrand/www/ezpublish-legacy/kernel/classes/ezcontentobjectattribute.php:276 eZDBInterface::begin
+            ->/home/bertrand/www/ezpublish-legacy/kernel/classes/ezcontentclassattribute.php:271 eZContentObjectAttribute::store
+          And commited at:
+          /home/bertrand/www/ezpublish-legacy/kernel/classes/ezcontentobjectattribute.php:283 eZDBInterface::commit
+            ->/home/bertrand/www/ezpublish-legacy/kernel/classes/ezcontentclassattribute.php:271 eZContentObjectAttribute::store
+        }
+        Level 2
+        {
+          Began at:
+          /home/bertrand/www/ezpublish-legacy/kernel/classes/ezcontentobjectattribute.php:276 eZDBInterface::begin
+            ->/home/bertrand/www/ezpublish-legacy/kernel/classes/ezcontentclassattribute.php:271 eZContentObjectAttribute::store
+          And commited at:
+          /home/bertrand/www/ezpublish-legacy/kernel/classes/ezcontentobjectattribute.php:283 eZDBInterface::commit
+            ->/home/bertrand/www/ezpublish-legacy/kernel/classes/ezcontentclassattribute.php:271 eZContentObjectAttribute::store
+        }
+        Level 2
+        {
+          Began at:
+          /home/bertrand/www/ezpublish-legacy/kernel/classes/ezcontentobjectattribute.php:276 eZDBInterface::begin
+            ->/home/bertrand/www/ezpublish-legacy/kernel/classes/ezcontentclassattribute.php:271 eZContentObjectAttribute::store
+          And commited at:
+          /home/bertrand/www/ezpublish-legacy/kernel/classes/ezcontentobjectattribute.php:283 eZDBInterface::commit
+            ->/home/bertrand/www/ezpublish-legacy/kernel/classes/ezcontentclassattribute.php:271 eZContentObjectAttribute::store
+        }
+        Level 2
+        {
+          Began at:
+          /home/bertrand/www/ezpublish-legacy/kernel/classes/ezcontentobjectattribute.php:276 eZDBInterface::begin
+            ->/home/bertrand/www/ezpublish-legacy/kernel/classes/ezcontentclassattribute.php:271 eZContentObjectAttribute::store
+          And commited at:
+          /home/bertrand/www/ezpublish-legacy/kernel/classes/ezcontentobjectattribute.php:283 eZDBInterface::commit
+            ->/home/bertrand/www/ezpublish-legacy/kernel/classes/ezcontentclassattribute.php:271 eZContentObjectAttribute::store
+        }
+        Level 2
+        {
+          Began at:
+          /home/bertrand/www/ezpublish-legacy/kernel/classes/ezcontentobjectattribute.php:276 eZDBInterface::begin
+            ->/home/bertrand/www/ezpublish-legacy/kernel/classes/ezcontentclassattribute.php:271 eZContentObjectAttribute::store
+          And commited at:
+          /home/bertrand/www/ezpublish-legacy/kernel/classes/ezcontentobjectattribute.php:283 eZDBInterface::commit
+            ->/home/bertrand/www/ezpublish-legacy/kernel/classes/ezcontentclassattribute.php:271 eZContentObjectAttribute::store
+        }
+      And commited at:
+      /home/bertrand/www/ezpublish-legacy/kernel/classes/ezcontentclass.php:344 eZDBInterface::commit
+        ->/home/bertrand/www/ezpublish-legacy/kernel/classes/ezcontentclass.php:263 eZContentClass::instantiate
+    }
+    Level 1
+    {
+      Began at:
+      /home/bertrand/www/ezpublish-legacy/kernel/classes/ezcontentobjectattribute.php:276 eZDBInterface::begin
+        ->/home/bertrand/www/ezpublish-legacy/kernel/classes/ezcontentupload.php:676 eZContentObjectAttribute::store
+      And commited at:
+      /home/bertrand/www/ezpublish-legacy/kernel/classes/ezcontentobjectattribute.php:283 eZDBInterface::commit
+        ->/home/bertrand/www/ezpublish-legacy/kernel/classes/ezcontentupload.php:676 eZContentObjectAttribute::store
+    }
+    Level 1
+    {
+      Began at:
+      /home/bertrand/www/ezpublish-legacy/kernel/classes/ezcontentobjectattribute.php:276 eZDBInterface::begin
+        ->/home/bertrand/www/ezpublish-legacy/kernel/classes/ezcontentupload.php:697 eZContentObjectAttribute::store
+      And commited at:
+      /home/bertrand/www/ezpublish-legacy/kernel/classes/ezcontentobjectattribute.php:283 eZDBInterface::commit
+        ->/home/bertrand/www/ezpublish-legacy/kernel/classes/ezcontentupload.php:697 eZContentObjectAttribute::store
+    }
+    Level 1
+    {
+      Began at:
+      /home/bertrand/www/ezpublish-legacy/kernel/classes/ezcontentobject.php:502 eZDBInterface::begin
+        ->/home/bertrand/www/ezpublish-legacy/kernel/classes/ezcontentupload.php:723 eZContentObject::setName
+      And commited at:
+      /home/bertrand/www/ezpublish-legacy/kernel/classes/ezcontentobject.php:533 eZDBInterface::commit
+        ->/home/bertrand/www/ezpublish-legacy/kernel/classes/ezcontentupload.php:723 eZContentObject::setName
+    }
+    Level 1
+    {
+      Began at:
+      /home/bertrand/www/ezpublish-legacy/kernel/classes/ezcontentobject.php:260 eZDBInterface::begin
+        ->/home/bertrand/www/ezpublish-legacy/kernel/classes/ezcontentupload.php:724 eZContentObject::store
+        Level 2
+        {
+          Began at:
+          /home/bertrand/www/ezpublish-legacy/kernel/classes/ezcontentobject.php:313 eZDBInterface::begin
+            ->/home/bertrand/www/ezpublish-legacy/kernel/classes/ezcontentobject.php:261 eZContentObject::storeNodeModified
+          And commited at:
+          /home/bertrand/www/ezpublish-legacy/kernel/classes/ezcontentobject.php:318 eZDBInterface::commit
+            ->/home/bertrand/www/ezpublish-legacy/kernel/classes/ezcontentobject.php:261 eZContentObject::storeNodeModified
+        }
+      And commited at:
+      /home/bertrand/www/ezpublish-legacy/kernel/classes/ezcontentobject.php:263 eZDBInterface::commit
+        ->/home/bertrand/www/ezpublish-legacy/kernel/classes/ezcontentupload.php:724 eZContentObject::store
+    }
+    Level 1
+    {
+      Began at:
+      /home/bertrand/www/ezpublish-legacy/kernel/content/ezcontentoperationcollection.php:112 eZDBInterface::begin
+        ->???:??? eZContentOperationCollection::beginTransaction
+        Level 2
+        {
+          Began at:
+          /home/bertrand/www/ezpublish-legacy/kernel/classes/ezcollaborationitemgrouplink.php:99 eZDBInterface::begin
+            ->/home/bertrand/www/ezpublish-legacy/kernel/classes/collaborationhandlers/ezapprove/ezapprovecollaborationhandler.php:186 eZCollaborationItemGroupLink::addItem
+          And commited at:
+          /home/bertrand/www/ezpublish-legacy/kernel/classes/ezcollaborationitemgrouplink.php:103 eZDBInterface::commit
+            ->/home/bertrand/www/ezpublish-legacy/kernel/classes/collaborationhandlers/ezapprove/ezapprovecollaborationhandler.php:186 eZCollaborationItemGroupLink::addItem
+        }
+        Level 2
+        {
+          Began at:
+          /home/bertrand/www/ezpublish-legacy/kernel/classes/ezcollaborationitemgrouplink.php:99 eZDBInterface::begin
+            ->/home/bertrand/www/ezpublish-legacy/kernel/classes/collaborationhandlers/ezapprove/ezapprovecollaborationhandler.php:186 eZCollaborationItemGroupLink::addItem
+          And commited at:
+          /home/bertrand/www/ezpublish-legacy/kernel/classes/ezcollaborationitemgrouplink.php:103 eZDBInterface::commit
+            ->/home/bertrand/www/ezpublish-legacy/kernel/classes/collaborationhandlers/ezapprove/ezapprovecollaborationhandler.php:186 eZCollaborationItemGroupLink::addItem
+        }
+        Level 2
+        {
+          Began at:
+          /home/bertrand/www/ezpublish-legacy/kernel/classes/eztrigger.php:244 eZDBInterface::begin
+            ->/home/bertrand/www/ezpublish-legacy/kernel/classes/eztrigger.php:222 eZTrigger::runWorkflow
+          And commited at:
+          /home/bertrand/www/ezpublish-legacy/kernel/classes/eztrigger.php:298 eZDBInterface::commit
+            ->/home/bertrand/www/ezpublish-legacy/kernel/classes/eztrigger.php:222 eZTrigger::runWorkflow
+        }
+      And commited at:
+      /home/bertrand/www/ezpublish-legacy/kernel/classes/ezcontentupload.php:702 eZDBInterface::commit
+        ->/home/bertrand/www/ezpublish-legacy/extension/ezoe/modules/ezoe/upload.php:114 eZContentUpload::handleUpload
+    }
+    Level 1
+    {
+      Began at:
+      /home/bertrand/www/ezpublish-legacy/kernel/classes/ezcontentobject.php:2850 eZDBInterface::begin
+        ->/home/bertrand/www/ezpublish-legacy/extension/ezoe/modules/ezoe/upload.php:182 eZContentObject::addContentObjectRelation
+      And commited at:
+      /home/bertrand/www/ezpublish-legacy/kernel/classes/ezcontentobject.php:2853 eZDBInterface::commit
+        ->/home/bertrand/www/ezpublish-legacy/extension/ezoe/modules/ezoe/upload.php:182 eZContentObject::addContentObjectRelation
+    }
+}
