@@ -100,4 +100,18 @@ class EzPublishKernel extends Kernel
 
         $loader->load( $configFile );
     }
+
+    /**
+     * Initializes the Container
+     */
+    protected function initializeContainer()
+    {
+        parent::initializeContainer();
+        if ( PHP_SAPI == 'cli' ) 
+        {
+            $this->getContainer()->enterScope( 'request' );
+            $this->getContainer()->set( 'request', new \Symfony\Component\HttpFoundation\Request(), 'request' );
+        }
+    }
+
 }
