@@ -29,7 +29,7 @@ Feature: Read one Content Type Group
             | field      | value |
             | id         | A     |
         When I open ContentTypeGroup with "id" "A"
-        Then I should see "ContentTypeGroup do not exist" error
+        Then I should see not found error
 
 
     @qa-266
