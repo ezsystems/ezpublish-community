@@ -39,4 +39,4 @@ Feature: Read one Content Type Group
             | field      | value |
             | id         | A     |
         When I open ContentTypeGroup with "id" "A"
-        Then I see an unauthorized error
+        Then I should see an unauthorized error
