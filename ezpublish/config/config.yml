@@ -8,7 +8,7 @@ framework:
     # The secret parameter is used to generate CSRF tokens
     secret:          %secret%
     router:
-        resource: "%kernel.root_dir%/config/routing.yml"
+        resource: "%ez_kernel.root_dir%/config/routing.yml"
         strict_requirements: %kernel.debug%
     form:            ~
     csrf_protection:
@@ -47,6 +47,6 @@ assetic:
 
 ez_publish_legacy:
     enabled: true
-    root_dir: %kernel.root_dir%/../ezpublish_legacy
+    root_dir: %ez_kernel.root_dir%/../ezpublish_legacy
 
 parameters:
