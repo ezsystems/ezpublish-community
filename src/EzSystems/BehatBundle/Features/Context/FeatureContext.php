@@ -95,6 +95,55 @@ class FeatureContext extends MinkContext implements KernelAwareInterface
     }
 
     /**
+     * @BeforeScenario
+     *
+     * @param FeatureEvent $event
+     */
+    public function scenarioDatabaseClear( $event )
+    {
+        $parameters = $this->parameters;
+
+        // verify if it's setted to reset Db each scenario
+        if ( !isset( $parameters['scenarioDbReset'] ) || !$parameters['scenarioDbReset'] )
+        {
+            return;
+        }
+
+        $this->databaseClear( $parameters );
+    }
+
+    /**
+     * Clear database with the parameters given
+     *
+     * @param array $parameters Parameters passed to define how to reset dabase
+     *
+     * @todo pass this funciton to static so that the BeforeFeature hook works also
+     * @todo discover why the symfony options are not taken into account
+     */
+    public function databaseClear( array $parameters = null )
+    {
+        $defaultOptions = array(
+            'quiet' => true,
+            'fixture' => '',
+        );
+
+        $inputOptions = array_merge( $defaultOptions, $parameters );
+
+        $options = array(
+            'command' => 'ezpublish:test:init_db',
+            '--no-interaction' => true,
+            '--no-database' => !$inputOptions['dbinit'],
+            '--fixture' => $inputOptions['fixture'],
+            '--quiet' => $inputOptions['quiet'],
+        );
+
+        $application = new Application( $this->kernel );
+        $application->add( new \eZ\Bundle\EzPublishCoreBundle\Command\TestInitDbCommand() );
+        $command = $application->find( "ezpublish:test:init_db" );
+        $command->run( new ArrayInput( $options ), new ConsoleOutput() );
+    }
+
+    /**
      * Returns the path associated with $pageIdentifier
      *
      * @param string $pageIdentifier

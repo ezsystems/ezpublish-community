@@ -17,3 +17,15 @@ default:
                 class: EzPublishKernel
                 env: behat
                 debug: true
+    context:
+        parameters:
+            ##
+            # @param scenarioDbReset    bool    This is to make the database reset by scenario
+            # @param featureDbReset     bool    This is to make the database reset by feature (it will be false if the scenarioDbReset is active)
+            # @param fixture            string  File to be used on the database reset
+            # @param quiet              bool    Print (or not) the database reset text
+            ##
+            scenarioDbReset: false
+            featureDbReset: true
+            fixture: demo_data.php
+            quiet: true
