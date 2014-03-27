@@ -25,11 +25,12 @@ use Symfony\Component\HttpKernel\KernelInterface;
 class FeatureContext extends MinkContext implements KernelAwareInterface
 {
     const DEFAULT_SITEACCESS_NAME = 'behat_site';
+    const DB_DUMP_FILE_PATH = 'behatdbdump.sql';
 
     /**
      * @var \Symfony\Component\HttpKernel\KernelInterface
      */
-    private $kernel;
+    static private $kernel;
 
     /**
      * @var array
@@ -104,6 +105,92 @@ class FeatureContext extends MinkContext implements KernelAwareInterface
         }
 
         return new SiteAccess( $siteAccessName, 'cli' );
+    }
+
+    /**
+     * DB commands
+     *
+     * @param string $type What should be executed (options: "backup" or "restore")
+     */
+    static public function databaseCommand( $type )
+    {
+        // get database parameters
+        // if it throws an error, than this should be testing SetupWizard or
+        // any test previous of the installation
+        try
+        {
+            $dbParams = self::$kernel->getContainer()->get( 'ezpublish.connection' )->getConnection()->getParams();
+        }
+        catch ( \Exception $e )
+        {
+            return;
+        }
+
+        // these are the strings to be changed on the template commands
+        $search = array(
+            'user'   => "<% username %>",
+            'passwd' => "<% password %>",
+            'db'     => "<% database %>",
+            'host'   => "<% host %>",
+            'file'   => "<% dumpfile %>",
+        );
+
+        // template commands
+        $allCommands = array(
+            'backup' => array(
+                'mysql' => 'mysqldump --user="' . $search['user'] . '" --password="' . $search['passwd'] . '" ' . $search['db'] . ' > ' . $search['file'],
+                'pgsql' => 'export PGPASSWD="' . $search['passwd'] . '" && pg_dump --username="' . $search['user'] . '" ' . $search['db'] . ' > ' . $search['file'],
+            ),
+            'restore' => array(
+                'mysql' => 'mysql --user="' . $search['user'] . '" --password="' . $search['passwd'] . '" ' . $search['db'] . ' < ' . $search['file'],
+                'pgsql' => 'export PGPASSWD="' . $search['passwd'] . '" && pg_restore --username="' . $search['user'] . '" --dbname="' . $search['db'] . '" ' . $search['file'],
+            )
+        );
+
+        // get database type
+        $dbtype = str_replace( array( 'pdo', '_' ), array( '', '' ), $dbParams['driver'] );
+
+        // finally create the command
+        $command = str_replace(
+            array(
+                $search['user'],
+                $search['passwd'],
+                $search['db'],
+                $search['host'],
+                $search['file'],
+            ),
+            array(
+                $dbParams['user'],
+                $dbParams['password'],
+                $dbParams['dbname'],
+                $dbParams['host'],
+                $filePath,
+            ),
+            $allCommands[$type][$dbtype]
+        );
+        // and execute it
+        exec( $command );
+    }
+
+    /**
+     * Make backup of database
+     *
+     * @BeforeSuite
+     */
+    static public function databaseBackup( $event )
+    {
+        self::databaseCommand( 'backup' );
+    }
+
+    /**
+     * Import the backup script made from self::databaseBackup
+     *
+     * @beforeFeature
+     */
+    static public function databaseCleaner( $event )
+    {
+        self::databaseCommand( 'restore' );
+        exec( 'php ezpublish/console cache:clear --env=behat' );
     }
 
     /**
