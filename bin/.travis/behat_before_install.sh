@@ -15,4 +15,4 @@ rm sahi_20130429.zip
 sudo chmod +x ~/sahi/bin/sahi.sh
 
 sudo apt-get update
-sudo apt-get install -q -y --force-yes apache2 libapache2-mod-fastcgi
+sudo apt-get install -q -y --force-yes apache2 libapache2-mod-php5
