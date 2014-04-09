@@ -4,7 +4,7 @@ default:
             base_url: 'http://localhost'
             goutte: ~
             selenium2:
-                capabilities: { "browser": "firefox", "version": "17"}
+                capabilities: { "browser": "firefox", "version": "17", "firefox": {  "profile": "bin/.travis/firefox/profile.zip" } }
 
             javascript_session: selenium2
             browser_name: firefox
