@@ -5,15 +5,51 @@
 
     #LogLevel debug
 
+    # Environment.
+    # Possible values: "prod" and "dev" out-of-the-box, other values possible with proper configuration
+    # Defaults to "prod" if omitted
     SetEnv ENVIRONMENT "behat"
+
+    # Whether to use Symfony's ApcClassLoader.
+    # Possible values: 0 or 1
+    # Defaults to 0 if omitted
+    #SetEnv USE_APC_CLASSLOADER 0
+
+    # Prefix used when USE_APC_CLASSLOADER is set to 1.
+    # Use a unique prefix in order to prevent cache key conflicts
+    # with other applications also using APC.
+    # Defaults to "ezpublish" if omitted
+    #SetEnv APC_CLASSLOADER_PREFIX "ezpublish"
+
+    # Whether to use debugging.
+    # Possible values: 0 or 1
+    # Defaults to 0 if omitted, unless ENVIRONMENT is set to: "dev"
     SetEnv USE_DEBUGGING 1
+
+    # Whether to use Symfony's HTTP Caching.
+    # Disable it if you are using an external reverse proxy (e.g. Varnish)
+    # Possible values: 0 or 1
+    # Defaults to 1 if omitted, unless ENVIRONMENT is set to: "dev"
     #SetEnv USE_HTTP_CACHE 1
+
+    # Defines the proxies to trust.
+    # Separate entries by a comma
+    # Example: "proxy1.example.com,proxy2.example.org"
+    # By default, no trusted proxies are set
     #SetEnv TRUSTED_PROXIES "127.0.0.1"
 
     <Directory %basedir%/web>
         Options FollowSymLinks
         AllowOverride None
     </Directory>
+
+    <IfModule mod_php5.c>
+        php_admin_flag safe_mode Off
+        php_admin_value register_globals    0
+        php_value magic_quotes_gpc  0
+        php_value magic_quotes_runtime  0
+        php_value allow_call_time_pass_reference 0
+    </IfModule>
 
     <IfModule mod_rewrite.c>
         RewriteEngine On
@@ -23,10 +59,6 @@
 
         # Uncomment in FastCGI mode, to get basic auth working.
         #RewriteRule .* - [E=HTTP_AUTHORIZATION:%{HTTP:Authorization}]
-
-        #RewriteCond %{REQUEST_URI} ^/php5.fastcgi(.*)
-        #RewriteRule . - [L]
-
         # v1 rest API is on Legacy
         RewriteRule ^/api/[^/]+/v1/ /index_rest.php [L]
 
@@ -43,13 +75,33 @@
         RewriteRule ^/packages/styles/.+/thumbnail/.* - [L]
         RewriteRule ^/var/storage/packages/.* - [L]
 
+        # Makes it possible to place your favicon at the root of your
+        # eZ Publish instance. It will then be served directly.
         RewriteRule ^/favicon\.ico - [L]
+        # Uncomment the line below if you want you favicon be served
+        # from the standard design. You can customize the path to
+        # favicon.ico by changing /design/standard/images/favicon\.ico
+        #RewriteRule ^/favicon\.ico /design/standard/images/favicon.ico [L]
         RewriteRule ^/design/standard/images/favicon\.ico - [L]
+
+        # Give direct access to robots.txt for use by crawlers (Google,
+        # Bing, Spammers..)
+        RewriteRule ^/robots\.txt - [L]
+
+        # Platform for Privacy Preferences Project ( P3P ) related files
+        # for Internet Explorer
+        # More info here : http://en.wikipedia.org/wiki/P3p
+        RewriteRule ^/w3c/p3p\.xml - [L]
+
+        # Uncomment the following lines when using popup style debug in legacy
+        #RewriteRule ^/var/([^/]+/)?cache/debug\.html.* - [L]
 
         # Following rule is needed to correctly display assets from eZ Publish5 / Symfony bundles
         RewriteRule ^/bundles/ - [L]
 
         # Additional Assetic rules for eZ Publish 5.1 / 2013.4 and higher:
+        ## Don't forget to run php ezpublish/console assetic:dump --env=prod
+        ## and make sure to comment these out in dev environment.
         RewriteRule ^/css/.*\.css - [L]
         RewriteRule ^/js/.*\.js - [L]
 
