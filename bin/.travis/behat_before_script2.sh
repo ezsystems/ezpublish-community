@@ -7,3 +7,6 @@
 composer run-script --dev post-install-cmd
 php ezpublish/console --env=behat assetic:dump
 php ezpublish/console --no-interaction --env=behat ezpublish:test:init_db
+
+# temp, testing
+git apply bin/.travis/bdd.diff

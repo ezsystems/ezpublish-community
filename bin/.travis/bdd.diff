@@ -1,0 +1,14 @@
+diff --git a/vendor/ezsystems/demobundle/EzSystems/DemoBundle/Features/start_page.feature b/Features/start_page.feature
+index 2b460de..6f61648 100644
+--- a/vendor/ezsystems/demobundle/EzSystems/DemoBundle/Features/start_page.feature
++++ b/vendor/ezsystems/demobundle/EzSystems/DemoBundle/Features/start_page.feature
+@@ -15,7 +15,9 @@ Feature: Start page
+     @javascript
+     Scenario: Login using inline javascript form
+         Given I go to the "Search" page
++          And print last response
+           And I follow "show login form"
++          And print last response
+          When I fill in "login-username" with "admin"
+           And I fill in "login-password" with "publish"
+           And I press "Login"
