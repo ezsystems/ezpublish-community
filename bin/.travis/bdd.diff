@@ -1,0 +1,22 @@
+diff --git a/vendor/ezsystems/demobundle/EzSystems/DemoBundle/Features/start_page.feature b/Features/start_page.feature
+index 2b460de..0da9e03 100644
+--- a/vendor/ezsystems/demobundle/EzSystems/DemoBundle/Features/start_page.feature
++++ b/vendor/ezsystems/demobundle/EzSystems/DemoBundle/Features/start_page.feature
+@@ -7,6 +7,7 @@ Feature: Start page
+ 
+     Scenario: Search works from the start page
+         Given I am on the homepage
++          And print last response
+          When I search for "Home"
+          Then I see "Search" page
+           And I see search 1 result
+@@ -15,7 +16,9 @@ Feature: Start page
+     @javascript
+     Scenario: Login using inline javascript form
+         Given I go to the "Search" page
++          And print last response
+           And I follow "show login form"
++          And print last response
+          When I fill in "login-username" with "admin"
+           And I fill in "login-password" with "publish"
+           And I press "Login"
