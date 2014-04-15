@@ -15,6 +15,12 @@
         AllowOverride None
     </Directory>
 
+    <Directory %basedir%>
+       <Files ~ "\.php$">
+           AcceptPathInfo On
+       </Files>
+    </Directory>
+
     <IfModule mod_rewrite.c>
         RewriteEngine On
 
