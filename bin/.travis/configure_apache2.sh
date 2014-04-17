@@ -13,12 +13,16 @@ sudo a2enmod fastcgi
 # sites disabling & enabling
 sudo a2dissite default
 sudo a2ensite behat
-
 # FPM
 DIR=$(dirname "$0")
 PHP_FPM_BIN="$HOME/.phpenv/versions/$TRAVIS_PHP_VERSION/sbin/php-fpm"
 PHP_FPM_CONF="$DIR/php-fpm.conf"
 USER=$(whoami)
+
+# enable php-fpm
+sudo cp ~/.phpenv/versions/$TRAVIS_PHP_VERSION/etc/php-fpm.conf.default $PHP_FPM_CONF
+sudo a2enmod alias
+echo "cgi.fix_pathinfo = 1" >> ~/.phpenv/versions/$TRAVIS_PHP_VERSION/etc/php.ini
 
 echo "
 [global]
