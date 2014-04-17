@@ -16,98 +16,136 @@ use eZ\Publish\API\Repository\Values\ValueObject;
 
 /**
  * ManagerInterface
+ *
+ * This interface should have the most basic actions to interact with every (as
+ * possible) object type (just like ContentType, Roles, Content objects, etc...)
+ *
+ * Since this needs to be adaptable to every possible object type, there are
+ * some considerations to have:
+ *
+ * About parameters:
+ * All parameters can, and should be defined on children classes how they
+ * will interact with the object manager
+ *  - $identifier
+ *      This should be an id, identifier, path, or any other info that can
+ *      uniquely identify an object
+ *  - array $fields
+ *      For some (maybe most) cases a simple associative array will do the
+ *      job, however, there are cases where that is not enough, just like
+ *      ContentType's, which, will need to have the FieldDefinitions also,
+ *      so for that specific case the array could look like:
+ *      <code>
+ *          $fields = array(
+ *              "names" => array( "some-name" ),
+ *              "identifier" => "some-identifier",
+ *              "fieldDefinitions" => array(
+ *                  "field1" => array(
+ *                        "names" => array( "some-field-name" ),
+ *                          "identifier" => "some-field-identifier",
+ *                  ),
+ *                  ...
+ *              )
+ *          );
+ *      </code>
+ *      But this is only an example, only to show it's possible to define a
+ *      different way of interacting with the object manager, but is
+ *      IMPORTANT to define/document in each class how it should look like
+ *  - array $definitions
+ *      All search limitations should be defined here, for instance, if
+ *      searching/counting/removing contents under some path it should be
+ *      defined here.
  */
 interface ManagerInterface
 {
     /**
-     * Verify that an object with the specified identifier exsits
+     * Verify that an object with the specified identifier exist
      *
-     * @param string $identifier This is what identifies the object, can be a URL, an unique identifier
+     * @param string $identifier
      *
      * @return boolean True if the object exists
      */
-    public function objectExists( $identifier );
+    public function exists( $identifier );
 
     /**
-     * Creates an object with dummy data (all possible fields) with the passed identifier
+     * Creates an object with dummy data for all possible fields and if an
+     * real identifier passed, it will use it also.
      *
-     * @param string $identifier This is what identifies the object, can be a URL, an unique identifier
+     * @param string $identifier
      *
-     * @return eZ\Publish\API\Repository\Values\ValueObject Returns the object that it creates
+     * @return \eZ\Publish\API\Repository\Values\ValueObject Object that it creates
      */
-    public function createDummyObject( $identifier );
+    public function createDummy( $identifier );
 
     /**
-     * Creates an object with the specified fields and add the not defined
-     * required fields
+     * Creates an object with the passed data and add the missing required fields
      *
-     * @param array $fields Any kind of definitions/fields that are needed to create the expected object
+     * @param array $fields
      *
-     * @return eZ\Publish\API\Repository\Values\ValueObject Returns the object that it creates
+     * @return \eZ\Publish\API\Repository\Values\ValueObject Object that it creates
      */
-    public function createObject( array $fields = null );
+    public function create( array $fields = null );
 
     /**
      * Remove the object with $identifier
      *
-     * @param string $identifier This is what identifies the object, can be a URL, an unique identifier
+     * @param string $identifier
      */
-    public function removeObject( $identifier );
+    public function remove( $identifier );
 
     /**
      * Remove all objects (or inside the $limitation)
      *
-     * @param array $limitations Specify the limitations on the complete removal
+     * @param array $definitions Specify the search conditions for the complete removal
      */
-    public function removeAllObjects( array $limitations = null );
+    public function removeAll( array $definitions = null );
 
     /**
-     * Depending on the passed definitions there should
+     * Depending on the passed definitions it should count the total of objects
      *
      * @param string $search     This is what should be searched
-     * @param array $definitions Any kind of definitions that are needed to create the expected object
+     * @param array $definitions Any other search conditions needed
      *
-     * @return int Returns the total of objects
+     * @return int Total of objects
      */
-    public function countObjects( $search, array $definitions = null );
+    public function count( $search, array $definitions = null );
 
     /**
      * Retrieve complete list of objects
      *
-     * @param array $limitations Specify the limitations on the complete list
+     * @param array $definitions Search conditions for the list
      *
-     * @return mixed[] Returns the object
+     * @return mixed[] Object(s)
      */
-    public function getObjectList( array $limitations = null );
+    public function getList( array $definitions = null );
 
     /**
      * Retrieve the object with the identifier
      *
-     * @param string $identifier This is what identifies the object, can be a URL, an unique identifier
+     * @param string $identifier
      *
-     * @throws eZ\Publish\Core\Base\Exceptions\InvalidArgumentValue If the $identifier is not of an expected type
+     * @throws \eZ\Publish\Core\Base\Exceptions\InvalidArgumentValue If the $identifier is not of an expected type
      *
-     * @return mixed Returns the object
+     * @return mixed Object
      */
-    public function getObject( $identifier );
+    public function get( $identifier );
 
     /**
      * Update an object with the specified definitions
      *
-     * @param string $identifier This is what identifies the object, can be a URL, an unique identifier
-     * @param array $fields      Any kind of definitions that are needed to update the expected object
+     * @param string $identifier
+     * @param array $fields
      *
-     * @return mixed Returns the object
+     * @return mixed Object
      */
-    public function updateObject( $identifier, array $fields = null );
+    public function update( $identifier, array $fields = null );
 
     /**
-     * Compare the expected data with the actual inside the object
+     * Compare the expected object with the actual object
      *
-     * @param array|eZ\Publish\API\Repository\Values\ValueObject  $expectedData All data should be in an associative array
-     * @param eZ\Publish\API\Repository\Values\ValueObject $actualObject The object of the type of the ContentManager
+     * @param \eZ\Publish\API\Repository\Values\ValueObject $expected The expected object
+     * @param \eZ\Publish\API\Repository\Values\ValueObject $actual The real object
      *
      * @return mixed True if the object has the data, false other wise
      */
-    public function compareDataWithObject( $expectedData, ValueObject $actualObject );
+    public function compare( ValueObject $expected, ValueObject $actual );
 }

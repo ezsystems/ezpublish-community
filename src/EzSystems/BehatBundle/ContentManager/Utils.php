@@ -12,6 +12,7 @@
 namespace EzSystems\BehatBundle\ContentManager;
 
 use eZ\Publish\API\Repository\Values\ValueObject;
+use eZ\Publish\Core\Base\Exceptions\InvalidArgumentValue;
 
 /**
  * Utils
@@ -21,9 +22,9 @@ class Utils
     const CHAR_ALPHA        = 'ALPHA';
     const CHAR_NUMERIC      = 'NUMERICT';
     const CHAR_SPACES       = 'SPACES';
-    const CHAR_PONTUATION   = 'PONTUATION';
+    const CHAR_PUNCTUATION  = 'PUNCTUATION';
     const CHAR_ACCENTUATION = 'ACCENTUATION';
-    const CHAR_ASIAN        = 'ASAIN';
+    const CHAR_NON_WESTERN  = 'NON_WESTERN';
     const CHAR_SPECIAL      = 'SPECIAL';
 
     /**
@@ -37,9 +38,9 @@ class Utils
      */
     static public function createRandomStringFromString( $characters, $min = 0, $max = -1 )
     {
-        if ( empty( $max ) || $max < 0 )
+        if ( empty   ( $max ) || $max < 0 )
         {
-            $total = $min + rand( 0, 200 );
+            $max = $min + rand( 1, 200 );
         }
         else if ( $max < $min )
         {
@@ -57,14 +58,14 @@ class Utils
     }
 
     /**
-     * Get all characters intended for the testing propouse
+     * Get all characters intended for the testing propose
      *
      * @param array $list Array with the list of characters intended
      * @param boolean $caseSensitive Add upper case characters
      *
      * @return string
      *
-     * @throws InvalidArgumentValue
+     * @throws \eZ\Publish\Core\Base\Exceptions\InvalidArgumentValue
      */
     static public function getCharactersList( array $list, $caseSensitive = false )
     {
@@ -72,10 +73,10 @@ class Utils
             self::CHAR_ALPHA         => 'abcdefghijklmnopqrstuvwxyz',
             self::CHAR_NUMERIC       => '0123456789',
             self::CHAR_SPACES        => '        ',
-            self::CHAR_PONTUATION    => '.,:;-_!?',
+            self::CHAR_PUNCTUATION   => '.,:;-_!?',
             self::CHAR_ACCENTUATION  => 'áéíóúýâêîôûãñõäëïöüÿåæœçðøßşğ',
-            //                           chinese          japanese:  kanji    hiragana          katakana
-            self::CHAR_ASIAN         => '電电電熱热熱聽麥麦' . '私金魚莨煙草東京' . 'わたしきんぎょた' . 'トウキョウタバコ',
+            //                           Chinese          Japanese:  kanji    hiragana          katakana          Korean            Arabic
+            self::CHAR_NON_WESTERN   => '電电電熱热熱聽麥麦' . '私金魚莨煙草東京' . 'わたしきんぎょた' . 'トウキョウタバコ' . "몽골에의해침략은" . "الحاد.ظهرتجوسونمي",
             self::CHAR_SPECIAL       => '@`´~^\'"#$%&{}()[]&=«»*+ªº£§\\|<>',
         );
 
@@ -92,7 +93,8 @@ class Utils
             $characters .= $allCharacters[$charactersType];
         }
 
-        // if it should be case sensitive concat all characters but in upper case
+        // if it should be case sensitive concatenation all characters but in
+        // upper case
         if ( $caseSensitive )
         {
             $characters .= strtoupper( $characters );
@@ -104,18 +106,18 @@ class Utils
     /**
      * Gets an object property/field
      *
-     * @param \eZ\Publish\API\Repository\Values\ValueObject $object The object to be updated
+     * @param \eZ\Publish\API\Repository\Values\ValueObject $object The object with the property
      * @param string $property Name of property or field
      *
      * @return mixed
      *
-     * @throws InvalidArgumentException If the property/field is not found
+     * @throws \eZ\Publish\Core\Base\Exceptions\InvalidArgumentValue If the property/field is not found
      */
     static public function getProperty( ValueObject $object, $property )
     {
         if ( !is_object( $object ) )
         {
-            throw new InvalidArgumentException( $object, 'is not an object' );
+            throw new InvalidArgumentValue( $object, 'is not an object' );
         }
 
         if ( property_exists( $object, $property ) )
@@ -128,7 +130,7 @@ class Utils
         }
         else
         {
-            throw new InvalidArgumentException( $property, "wasn't foun in '" . get_class( $object ) ."' object" );
+            throw new InvalidArgumentValue( $property, "wasn't found in '" . get_class( $object ) ."' object" );
         }
     }
 
@@ -139,15 +141,10 @@ class Utils
      * @param string $property Name of property or field
      * @param mixed  $value The value to set the property/field to
      *
-     * @throws InvalidArgumentException If the property/field is not found
+     * @throws \eZ\Publish\Core\Base\Exceptions\InvalidArgumentValue If the property/field is not found
      */
     static public function setProperty( ValueObject $object, $property, $value )
     {
-        if ( !is_object( $object ) )
-        {
-            throw new InvalidArgumentException( $object, 'is not an object' );
-        }
-
         if ( property_exists( $object, $property ) )
         {
             $object->$property = $value;
@@ -158,7 +155,7 @@ class Utils
         }
         else
         {
-            throw new InvalidArgumentException( $property, "wasn't foun in '" . get_class( $object ) ."' object" );
+            throw new InvalidArgumentValue( $property, "wasn't foun in '" . get_class( $object ) ."' object" );
         }
     }
 
@@ -170,11 +167,6 @@ class Utils
      */
     static public function setProperties( ValueObject $object, array $values )
     {
-        if ( empty( $values ) )
-        {
-            return;
-        }
-
         foreach ( $values as $property => $value )
         {
             self::setProperty( $object, $property, $value );
@@ -183,7 +175,7 @@ class Utils
 
     /**
      * Convert object into array, ie get all properties/fields of the object
-     * into an array
+     * into an array (even the protected properties)
      *
      * @param \eZ\Publish\API\Repository\Values\ValueObject $object Object to get all properties/fields
      *
@@ -208,7 +200,7 @@ class Utils
 
     /**
      * Verifies if the identifier is an single character internal identifier or
-     * a real identifier
+     * a real identifier (this identifier should be used on BDD steps)
      *
      * @param string $identifier
      *

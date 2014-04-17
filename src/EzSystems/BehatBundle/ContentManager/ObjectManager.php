@@ -15,10 +15,11 @@ use eZ\Publish\API\Repository\Repository;
 use eZ\Publish\API\Repository\Values\ValueObject;
 use eZ\Publish\API\Repository\Repository\Values\User\User;
 use eZ\Publish\Core\Base\Exceptions\InvalidArgumentValue;
-use EzSystems\BehatBundle\ContentManager\Utils;
 
 /**
  * ObjectManager
+ *
+ * This have already some redundant methods for all the object managers
  */
 abstract class ObjectManager
 {
@@ -53,7 +54,7 @@ abstract class ObjectManager
     const VALIDATION_YESTERDAY      = 'YESTERDAY';
 
     /**
-     * @var eZ\Publish\API\Repository\Repository
+     * @var \eZ\Publish\API\Repository\Repository
      */
     protected $repository;
 
@@ -110,7 +111,8 @@ abstract class ObjectManager
     protected $requiredFields;
 
     /**
-     * This is the var that will be used by __destruct
+     * This is the var will contain all objects created by the object manager
+     * that will be removed after testing by __destruct
      *
      * @var array
      */
@@ -120,9 +122,9 @@ abstract class ObjectManager
      * Since most of times we need an admin to create content, we need to set the
      * actual user as the admin, but we don't want to lose the actual user
      *
-     * @var eZ\Publish\API\Repository\Repository\Values\User\User
+     * @var \eZ\Publish\API\Repository\Repository\Values\User\User
      */
-    protected $lastUserSetted;
+    protected $lastUserSet;
 
     /**
      * @param \eZ\Publish\API\Repository\Repository $repository
@@ -138,20 +140,20 @@ abstract class ObjectManager
      * so the best is to set it to admin, and at the end set it back to the last user
      *
      * IMPORTANT:
-     *      If using API for testing, and the user isn't setted back to the previous
+     *      If using API for testing, and the user isn't set back to the previous
      *      user at the end of the action, it can have unexpected results on the
      *      tests
      */
     public function setAdmin()
     {
-        // if there is an setted user is because the actual user is an admin
+        // if there is an set user is because the actual user is an admin
         // so skip the set user
-        if ( !empty( $this->lastUserSetted ) )
+        if ( !empty( $this->lastUserSet ) )
         {
             return;
         }
 
-        $this->lastUserSetted = $this->repository->getCurrentUser();
+        $this->lastUserSet = $this->repository->getCurrentUser();
         $this->repository->setCurrentUser(
             $this->repository->getUserService()->loadUserByLogin( 'admin' )
         );
@@ -164,12 +166,12 @@ abstract class ObjectManager
      */
     public function setLastUser()
     {
-        if ( $this->lastUserSetted instanceof User )
+        if ( $this->lastUserSet instanceof User )
         {
             $this->repository->setCurrentUser(
-                $this->lastUserSetted
+                $this->lastUserSet
             );
-            unset( $this->lastUserSetted );
+            unset( $this->lastUserSet );
         }
     }
 
@@ -183,7 +185,7 @@ abstract class ObjectManager
      * <code>
      *  $validations = array(
      *      self::VALIDATION_LOWERCASE,
-     *      self::VALIDATION_
+     *      self::VALIDATION_MIN => 10
      *  );
      * </code>
      *
@@ -195,7 +197,7 @@ abstract class ObjectManager
      *          (ex: $validations = array( self::VALIDATION_MIN => <value> ))
      *          (ex: $validations = array( seld::VALIDATION_UNIQUE => array( <value1>, ... ))
      *
-     * @throws InvalidArgumentValue If the $type doesn't match
+     * @throws \eZ\Publish\Core\Base\Exceptions\InvalidArgumentValue If the $type doesn't match any option
      *
      * @return mixed The generated data
      */
@@ -348,46 +350,6 @@ abstract class ObjectManager
     {
         return false;
     }
-
-    /**
-     * Compare the expected data with the actual inside the object
-     *
-     * @param array|eZ\Publish\API\Repository\Values\ValueObject $expectedData All data should be in an associative array
-     * @param eZ\Publish\API\Repository\Values\ValueObject $actualObject The object of the type of the ContentManager
-     *
-     * @return mixed True if the object has the data, false other wise
-     */
-    public function compareDataWithObject( $expectedData, ValueObject $actualObject )
-    {
-        if ( !is_array( $expectedData ) )
-        {
-            return $this->compareObjects( $expectedData, $actualObject );
-        }
-
-        foreach ( $expectedData as $expectedKey => $expectedValue )
-        {
-            $actualValue = property_exists( $actualObject, $expectedKey ) ?
-                $actualObject->$expectedKey :
-                $actualObject->getField( $expectedKey );
-
-            if ( $actualValue !== $expectedValue )
-            {
-                return false;
-            }
-        }
-
-        return true;
-    }
-
-    /**
-     * Compare 2 objects
-     *
-     * @param \eZ\Publish\API\Repository\Values\ValueObject $expectedObject
-     * @param \eZ\Publish\API\Repository\Values\ValueObject $actualObject
-     *
-     * return boolean True on equals false otherwise
-     */
-    abstract public function compareObjects( ValueObject $expectedObject, ValueObject $actualObject );
 
     /**
      * Destroy/remove/delete all created objects
