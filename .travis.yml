@@ -6,8 +6,8 @@ php:
 
 # list of paths/bundle to execute
 env:
-  - TEST_SUIT="--profile democontent"
-#  - TEST_SUIT="vendor/ezsystems/demobundle/EzSystems/DemoBundle/Features/"
+#  - TEST_SUITE="--profile democontent"
+#  - TEST_SUITE="vendor/ezsystems/demobundle/EzSystems/DemoBundle/Features/"
 
 
 # test only master (+ Pull requests)
@@ -25,7 +25,7 @@ before_script:
   - ./bin/.travis/behat_before_script2.sh
 
 # execute behat as the script command
-script: "bin/behat $TEST_SUIT"
+script: "bin/behat"
 
 # disable mail notifications
 notification:
