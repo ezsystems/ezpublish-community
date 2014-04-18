@@ -25,7 +25,7 @@
         "tedivm/stash-bundle": "0.3.*",
         "ezsystems/ezpublish-kernel": "5.3.*@dev",
         "ezsystems/ezpublish-legacy": "@dev",
-        "ezsystems/demobundle": "@dev",
+        "ezsystems/demobundle": "dev-bdd/website_toolbar",
         "ezsystems/comments-bundle": "@dev",
         "egulias/listeners-debug-command-bundle": "~1.9",
         "white-october/pagerfanta-bundle": "1.0.*",
@@ -103,5 +103,11 @@
         "branch-alias": {
             "dev-master": "5.3.x-dev"
         }
-    }
+    },
+    "repositories": [
+        {
+            "type": "vcs",
+            "url": "https://github.com/bdunogier/DemoBundle"
+        }
+    ]
 }
