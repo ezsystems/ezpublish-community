@@ -20,12 +20,10 @@ default:
             mink_driver: true
     paths:
         features: vendor/ezsystems/
-
-democontent:
     context:
         class: EzSystems\DemoBundle\Features\Context\ContentContext
     paths:
         features: vendor/ezsystems/demobundle/EzSystems/DemoBundle/Features
         bootstrap: vendor/ezsystems/demobundle/EzSystems/DemoBundle/Features/Context
     filters:
-        tags: '@democontent'
+        tags: '@democontent,@websitetoolbar'
