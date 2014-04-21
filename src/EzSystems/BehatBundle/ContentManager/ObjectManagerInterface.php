@@ -1,9 +1,9 @@
 <?php
 /**
- * File containing the ManagerInterface.
+ * File containing the ObjectManagerInterface.
  *
- * This class contains ManagerInterface which will be the standard for every
- * object manager
+ * This class contains ObjectManagerInterface which will be the standard for
+ * every object manager
  *
  * @copyright Copyright (C) 1999-2014 eZ Systems AS. All rights reserved.
  * @license http://www.gnu.org/licenses/gpl-2.0.txt GNU General Public License v2
@@ -15,7 +15,7 @@ namespace EzSystems\BehatBundle\ContentManager;
 use eZ\Publish\API\Repository\Values\ValueObject;
 
 /**
- * ManagerInterface
+ * ObjectManagerInterface
  *
  * This interface should have the most basic actions to interact with every (as
  * possible) object type (just like ContentType, Roles, Content objects, etc...)
@@ -55,7 +55,7 @@ use eZ\Publish\API\Repository\Values\ValueObject;
  *      searching/counting/removing contents under some path it should be
  *      defined here.
  */
-interface ManagerInterface
+interface ObjectManagerInterface
 {
     /**
      * Verify that an object with the specified identifier exist
