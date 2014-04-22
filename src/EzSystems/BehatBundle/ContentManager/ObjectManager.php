@@ -136,46 +136,6 @@ abstract class ObjectManager
     }
 
     /**
-     * In most transactions to create an object it need to be an user with permissions
-     * so the best is to set it to admin, and at the end set it back to the last user
-     *
-     * IMPORTANT:
-     *      If using API for testing, and the user isn't set back to the previous
-     *      user at the end of the action, it can have unexpected results on the
-     *      tests
-     */
-    public function setAdmin()
-    {
-        // if there is an set user is because the actual user is an admin
-        // so skip the set user
-        if ( !empty( $this->lastUserSet ) )
-        {
-            return;
-        }
-
-        $this->lastUserSet = $this->repository->getCurrentUser();
-        $this->repository->setCurrentUser(
-            $this->repository->getUserService()->loadUserByLogin( 'admin' )
-        );
-    }
-
-    /**
-     * Sets the user to the last one, should only be used after the setAdmin()
-     *
-     * @see ObjectManager::setAdmin()
-     */
-    public function setLastUser()
-    {
-        if ( $this->lastUserSet instanceof User )
-        {
-            $this->repository->setCurrentUser(
-                $this->lastUserSet
-            );
-            unset( $this->lastUserSet );
-        }
-    }
-
-    /**
      * Generate data for the auto complete
      *
      * @param string $type The constant value to the expected data generated
@@ -356,12 +316,12 @@ abstract class ObjectManager
      */
     public function __destruct()
     {
-        $this->setAdmin();
         foreach ( $this->createdObjects as $object )
         {
-            $this->destroyObject( $object );
+            $this->repository->sudo(
+                $this->destroyObject( $object )
+            );
         }
-        $this->setLastUser();
     }
 
     /**
