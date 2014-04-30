@@ -76,8 +76,8 @@ for REPO in ${INSTALL[@]}; do
         # if it's community we can't remove because of being the root of project
         # so we need to add the remote stream and change to branch of that stream
         if [ "${REPO}" == "COMMUNITY" ]; then
-            doCommand git remote add some_stream $URL
-            doCommand git fetch some_stream
+            doCommand git remote add ${USER[${REPO}]}_stream $URL --track ${BRANCH[${REPO}]}
+            doCommand git fetch ${USER[${REPO}]}_stream --depth 1
             doCommand git checkout ${BRANCH[${REPO}]}
 
         # other wise we just remove the folder clone the remote, and change to
@@ -88,9 +88,8 @@ for REPO in ${INSTALL[@]}; do
             echo "- Repository: ${REPOSITORY[${REPO}]}"
             echo "- Branch: ${BRANCH[${REPO}]}"
             doCommand rm -rf ${LOCATION[${REPO}]}
-            doCommand git clone $URL ${LOCATION[${REPO}]}
+            doCommand git clone $URL ${LOCATION[${REPO}]} --depth 1 --single-branch --branch ${BRANCH[${REPO}]}
             doCommand cd ${LOCATION[${REPO}]}
-            doCommand git checkout ${BRANCH[${REPO}]}
             doCommand cd -
             echo "- done: '${REPO}'"
             echo ""
