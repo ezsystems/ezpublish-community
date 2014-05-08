@@ -26,6 +26,8 @@ before_install:
 # setup requirements for running tests
 before_script:
   - ./bin/.travis/prepare_ezpublish.sh
+  # use_branches wont do nothing unless its changed for testing proposes only
+  - ./bin/.travis/use_branches.sh
 
 # execute behat as the script command
 script:
