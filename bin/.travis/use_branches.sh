@@ -39,7 +39,7 @@ REPOSITORY[$COMMUNITY]="ezpublish-community"
 ### end of private vars ###
 
 ### Define the variables at your will ###
-MASTER_USER="ezsystems"
+MASTER_USER="mloureiro"
 MASTER_LOCATION="vendor/ezsystems"
 
 # Repositories
@@ -49,7 +49,7 @@ USER[$DEMO]=$MASTER_USER
 USER[$COMMUNITY]=$MASTER_USER
 
 # Branches
-BRANCH[$KERNEL]=""
+BRANCH[$KERNEL]="fix_sw_legacy#948"
 BRANCH[$LEGACY]=""
 BRANCH[$DEMO]=""
 BRANCH[$COMMUNITY]=""
