@@ -17,4 +17,4 @@ sh -e ./sahi.sh &
 cd -
 
 # Give Sahi some time to start
-sleep 4
+sleep 8

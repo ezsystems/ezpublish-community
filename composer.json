@@ -23,7 +23,7 @@
         "sensio/generator-bundle": "2.3.*",
         "incenteev/composer-parameter-handler": "~2.0",
         "tedivm/stash-bundle": "0.3.*",
-        "ezsystems/ezpublish-kernel": "5.3.*@dev",
+        "ezsystems/ezpublish-kernel": "dev-impl-EZP-22662-symfony-papi-container",
         "ezsystems/ezpublish-legacy": "@dev",
         "ezsystems/demobundle": "@dev",
         "ezsystems/comments-bundle": "@dev",
