@@ -61,6 +61,7 @@ class EzPublishKernel extends Kernel
             new EzSystemsCommentsBundle(),
             new EzSystemsNgsymfonytoolsBundle(),
             new WhiteOctoberPagerfantaBundle(),
+            new WhiteOctober\BreadcrumbsBundle\WhiteOctoberBreadcrumbsBundle(),
             new NelmioCorsBundle(),
         );
 
