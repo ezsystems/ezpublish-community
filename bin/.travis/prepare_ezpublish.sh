@@ -13,3 +13,6 @@ sudo setfacl -dR -m u:www-data:rwx -m u:`whoami`:rwx \
 
 echo "> Run assetic dump for behat env"
 php ezpublish/console --env=behat assetic:dump
+
+echo "> Warm up caches for behat env"
+php ezpublish/console --env=behat cache:clear
