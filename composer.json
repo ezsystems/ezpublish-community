@@ -12,6 +12,20 @@
     "autoload": {
         "psr-0": { "": "src/" }
     },
+    "repositories": [
+        {
+            "type": "vcs",
+            "url": "https://github.com/mloureiro/ezpublish-kernel"
+        },
+        {
+            "type": "vcs",
+            "url": "https://github.com/mloureiro/demobundle"
+        },
+        {
+            "type": "vcs",
+            "url": "https://github.com/mloureiro/behatbundle"
+        }
+    ],
     "require": {
         "php": ">=5.3.3",
         "symfony/symfony": "2.3.*",
@@ -23,9 +37,9 @@
         "sensio/generator-bundle": "2.3.*",
         "incenteev/composer-parameter-handler": "~2.0",
         "tedivm/stash-bundle": "0.3.*",
-        "ezsystems/ezpublish-kernel": "@dev",
+        "ezsystems/ezpublish-kernel": "dev-fix_behat_inheritance",
         "ezsystems/ezpublish-legacy": "@dev",
-        "ezsystems/demobundle": "@dev",
+        "ezsystems/demobundle": "dev-fix_behat_inheritance",
         "ezsystems/comments-bundle": "@dev",
         "egulias/listeners-debug-command-bundle": "~1.9",
         "white-october/pagerfanta-bundle": "1.0.*",
@@ -64,7 +78,7 @@
         "behat/mink-selenium-driver": "*",
         "behat/mink-sahi-driver": "*",
         "behat/mink-selenium2-driver": "*",
-        "ezsystems/behatbundle": "@dev",
+        "ezsystems/behatbundle": "dev-fix_behat_inheritance",
         "phpunit/phpunit": "3.7.*"
     },
     "scripts": {
