@@ -12,6 +12,12 @@
     "autoload": {
         "psr-0": { "": "src/" }
     },
+    "repositories": [
+        {
+            "type": "vcs",
+            "url": "https://github.com/mloureiro/demobundle"
+        },
+    ],
     "require": {
         "php": ">=5.3.17",
         "symfony/symfony": "2.3.*",
