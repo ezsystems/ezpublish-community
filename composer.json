@@ -16,7 +16,7 @@
         {
             "type": "vcs",
             "url": "https://github.com/mloureiro/demobundle"
-        },
+        }
     ],
     "require": {
         "php": ">=5.3.17",
