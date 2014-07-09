@@ -34,8 +34,8 @@ sudo echo "cgi.fix_pathinfo = 1" >> ~/.phpenv/versions/$(phpenv version-name)/et
     netstat -tulnp | grep ":9000"
 
 # restart
+echo "> restart FPM"
+sudo service php5-fpm restart
 sudo ~/.phpenv/versions/$(phpenv version-name)/sbin/php-fpm
 echo "> restart apache2"
 sudo service apache2 restart
-echo "> restart FPM"
-sudo service php5-fpm restart
