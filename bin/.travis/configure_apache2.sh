@@ -31,8 +31,6 @@ php_admin_value[memory_limit] = 256M
 sudo echo 'date.timezone = "Europe/Oslo"' >> ~/.phpenv/versions/$TRAVIS_PHP_VERSION/etc/conf.d/travis.ini
 sudo echo "cgi.fix_pathinfo = 1" >> ~/.phpenv/versions/$(phpenv version-name)/etc/php.ini
 
-    netstat -tulnp | grep ":9000"
-
 # restart
 echo "> restart FPM"
 sudo service php5-fpm stop

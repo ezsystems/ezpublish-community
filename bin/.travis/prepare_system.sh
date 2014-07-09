@@ -20,4 +20,3 @@ echo "> Configure apache server"
 # Create database
 echo "> Create database and grant premissions to user 'ezp'"
 mysql -uroot -e "CREATE DATABASE IF NOT EXISTS behattestdb; GRANT ALL ON behattestdb.* TO ezp@localhost IDENTIFIED BY 'ezp';"
-mysql -uroot -e "CREATE DATABASE IF NOT EXISTS none; GRANT ALL ON behattestdb.* TO ezp@localhost IDENTIFIED BY 'ezp';"
