@@ -11,8 +11,6 @@ sudo a2enmod rewrite actions fastcgi alias
 sudo a2dissite default
 sudo a2ensite behat
 
-    sudo a2enmod actions fastcgi alias
-
 # FPM
 USER=$(whoami)
 
@@ -33,7 +31,11 @@ php_admin_value[memory_limit] = 256M
 sudo echo 'date.timezone = "Europe/Oslo"' >> ~/.phpenv/versions/$TRAVIS_PHP_VERSION/etc/conf.d/travis.ini
 sudo echo "cgi.fix_pathinfo = 1" >> ~/.phpenv/versions/$(phpenv version-name)/etc/php.ini
 
+    netstat -tulnp | grep ":9000"
+
 # restart
 sudo ~/.phpenv/versions/$(phpenv version-name)/sbin/php-fpm
+echo "> restart apache2"
 sudo service apache2 restart
+echo "> restart FPM"
 sudo service php5-fpm restart
