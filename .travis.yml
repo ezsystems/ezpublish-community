@@ -29,10 +29,8 @@ before_script:
 
 # execute behat as the script command
 script:
-    - curl -L http://localhost/
     - php bin/behat --profile $INSTALL
     - php bin/behat --profile $PROFILE
-    - sudo tail -n 1000 /var/log/apache2/error.log
 
 # disable mail notifications
 notification:
