@@ -11,6 +11,8 @@ sudo a2enmod rewrite actions fastcgi alias
 sudo a2dissite default
 sudo a2ensite behat
 
+    sudo a2enmod actions fastcgi alias
+
 # FPM
 USER=$(whoami)
     USER=www-data
@@ -21,6 +23,11 @@ sudo echo "
 [www]
 user = $USER
 group = $USER
+
+    listen.owner = www-data
+    listen.group = www-data
+    listen.mode = 0660
+
 listen = /tmp/php-fpm.sock
 pm = static
 pm.max_children = 2
@@ -28,9 +35,12 @@ pm.max_children = 2
 php_admin_value[memory_limit] = 256M
 " > ~/.phpenv/versions/$(phpenv version-name)/etc/php-fpm.conf
 
+sudo chmod 666 ~/.phpenv/versions/$(phpenv version-name)/etc/php-fpm.conf
+
 sudo echo 'date.timezone = "Europe/Oslo"' >> ~/.phpenv/versions/$TRAVIS_PHP_VERSION/etc/conf.d/travis.ini
 sudo echo "cgi.fix_pathinfo = 1" >> ~/.phpenv/versions/$(phpenv version-name)/etc/php.ini
 
 # restart
 sudo ~/.phpenv/versions/$(phpenv version-name)/sbin/php-fpm
 sudo service apache2 restart
+sudo service php5-fpm restart
