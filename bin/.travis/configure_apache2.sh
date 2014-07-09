@@ -24,10 +24,6 @@ sudo echo "
 user = $USER
 group = $USER
 
-    listen.owner = www-data
-    listen.group = www-data
-    listen.mode = 0660
-
 listen = /tmp/php-fpm.sock
 pm = static
 pm.max_children = 2
