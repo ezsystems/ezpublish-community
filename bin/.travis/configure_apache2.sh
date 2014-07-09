@@ -24,7 +24,7 @@ sudo echo "
 user = $USER
 group = $USER
 
-listen = /tmp/php-fpm.sock
+listen = 127.0.0.1:9000
 pm = static
 pm.max_children = 2
 
