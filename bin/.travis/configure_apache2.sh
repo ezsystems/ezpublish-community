@@ -15,7 +15,6 @@ sudo a2ensite behat
 
 # FPM
 USER=$(whoami)
-    USER=www-data
 
 sudo echo "
 [global]
@@ -24,7 +23,7 @@ sudo echo "
 user = $USER
 group = $USER
 
-listen = 127.0.0.1:9000
+listen = /tmp/php-fpm.sock
 pm = static
 pm.max_children = 2
 
