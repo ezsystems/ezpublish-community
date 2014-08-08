@@ -8,7 +8,7 @@
  */
 
 use eZ\Bundle\EzPublishCoreBundle\Kernel;
-use EzSystems\NgsymfonytoolsBundle\EzSystemsNgsymfonytoolsBundle;
+use Symfony\Component\Config\Loader\LoaderInterface;
 
 class EzPublishKernel extends Kernel
 {
