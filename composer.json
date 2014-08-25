@@ -12,6 +12,16 @@
     "autoload": {
         "psr-0": { "": "src/" }
     },
+    "repositories": [
+        {
+            "type": "vcs",
+            "url": "https://github.com/mloureiro/ezpublish-kernel"
+        },
+        {
+            "type": "vcs",
+            "url": "https://github.com/mloureiro/demobundle"
+        }
+    ],
     "require": {
         "php": ">=5.3.17",
         "symfony/symfony": "2.3.*",
@@ -23,9 +33,9 @@
         "sensio/generator-bundle": "2.3.*",
         "incenteev/composer-parameter-handler": "~2.0",
         "tedivm/stash-bundle": "0.4.*",
-        "ezsystems/ezpublish-kernel": "dev-master",
+        "ezsystems/ezpublish-kernel": "dev-remove_generic_tags",
         "ezsystems/ezpublish-legacy": "dev-master",
-        "ezsystems/demobundle": "dev-master",
+        "ezsystems/demobundle": "dev-remove_generic_tags",
         "ezsystems/comments-bundle": "dev-master",
         "egulias/listeners-debug-command-bundle": "~1.9",
         "white-october/pagerfanta-bundle": "1.0.*",
