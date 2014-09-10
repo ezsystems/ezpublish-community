@@ -14,11 +14,11 @@
     },
     "repositories": [{
         "type": "vcs",
-        "url": "https://github.com/mloureiro/ezpublish-kernel"
+        "url": "https://github.com/cleverti/ezpublish-kernel"
     },
     {
         "type": "vcs",
-        "url": "https://github.com/mloureiro/demobundle"
+        "url": "https://github.com/cleverti/demobundle"
     }],
     "require": {
         "php": ">=5.3.17",
