@@ -19,6 +19,10 @@
     {
         "type": "vcs",
         "url": "https://github.com/cleverti/demobundle"
+    },
+    {
+        "type": "vcs",
+        "url": "https://github.com/cleverti/behatbundle"
     }],
     "require": {
         "php": ">=5.3.17",
@@ -74,7 +78,7 @@
         "behat/mink-selenium-driver": "*",
         "behat/mink-sahi-driver": "*",
         "behat/mink-selenium2-driver": "*",
-        "ezsystems/behatbundle": "@dev",
+        "ezsystems/behatbundle": "dev-behat_upgrade",
         "phpunit/phpunit": "3.7.*"
     },
     "scripts": {
