@@ -32,6 +32,10 @@ before_script:
 
 # execute behat as the script command
 script:
+    - sudo apt-get install tree
+    - tree vendor/ezsystems/behatbundle/EzSystems/BehatBundle/
+    - tree vendor/ezsystems/ezpublish-kernel/eZ/Bundle/EzPublishRestBundle/Features
+    - tree vendor/ezsystems/ezpublish-kernel/eZ/Bundle/EzPublishLegacyBundle/Features
     - php bin/behat --profile setupWizard --suite $INSTALL
     - php bin/behat --profile $PROFILE --suite $TEST
 
