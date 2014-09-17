@@ -24,3 +24,6 @@ monolog:
 
 assetic:
     use_controller: true
+
+twig:
+    cache:  false
