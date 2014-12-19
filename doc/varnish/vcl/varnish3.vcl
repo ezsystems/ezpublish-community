@@ -89,6 +89,12 @@ sub vcl_fetch {
     ) {
         error 503 "Hash error";
     }
+    
+    //secure eZSESSID generate
+    if (beresp.ttl <= 0s || beresp.http.Set-Cookie || beresp.http.Vary == "*") {
+    	set beresp.ttl = 120 s;
+     	return (hit_for_pass);
+    }
 
     // Optimize to only parse the Response contents from Symfony
     if (beresp.http.Surrogate-Control ~ "ESI/1.0") {
