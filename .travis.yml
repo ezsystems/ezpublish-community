@@ -14,6 +14,10 @@ env:
   - INSTALL="demoCleanNonUniqueDB" PROFILE="rest" TEST="fullJson"
   - INSTALL="demoCleanNonUniqueDB" PROFILE="rest" TEST="fullXml"
 
+cache:
+  directories:
+    - vendor
+    - $HOME/.composer/cache
 
 # test only master (+ Pull requests)
 branches:
