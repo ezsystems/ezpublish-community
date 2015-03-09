@@ -25,6 +25,7 @@
         "tedivm/stash-bundle": "0.4.*",
         "ezsystems/ezpublish-kernel": "dev-master",
         "ezsystems/legacy-bridge": "dev-master",
+        "ezsystems/ngsymfonytools-bundle": "dev-master",
         "ezsystems/platform-ui-bundle": "dev-master",
         "ezsystems/platform-ui-assets-bundle": "~0.2",
         "ezsystems/demobundle": "dev-master",
