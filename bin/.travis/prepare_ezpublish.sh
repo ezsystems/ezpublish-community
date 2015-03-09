@@ -5,19 +5,8 @@
 echo "> Setup github auth key to not reach api limit"
 ./bin/.travis/install_composer_github_key.sh
 
-echo "> Copy behat specific parameters.yml settings"
-cp bin/.travis/parameters.yml ezpublish/config/
-
 echo "> Install dependencies through composer"
 composer install -n --prefer-dist
-
-if [ "$TEST" = "content" ] ; then
-  echo "> Install ezplatform demo"
-  php ezpublish/console ezplatform:install demo
-else
-  echo "> Install ezplatform clean"
-  php ezpublish/console ezplatform:install clean
-fi
 
 echo "> Set folder permissions"
 sudo find {ezpublish/{cache,logs,config,sessions},web} -type d | sudo xargs chmod -R 777

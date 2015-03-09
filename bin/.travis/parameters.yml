@@ -1,5 +1,0 @@
-# This file only contains settings different then defaults in parameters.yml.dist
-parameters:
-    database_name: behattestdb
-    database_user: ezp
-    database_password: ezp
