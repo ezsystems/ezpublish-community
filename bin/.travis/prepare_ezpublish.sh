@@ -11,8 +11,8 @@ cp bin/.travis/parameters.yml ezpublish/config/
 echo "> Install dependencies through composer"
 composer install -n --prefer-dist
 
-if [ "$INSTALL" = "demoContentNonUniqueDB" ] ; then
-  echo "> Install ezplatform demo-content"
+if [ "$TEST" = "content" ] ; then
+  echo "> Install ezplatform demo"
   php ezpublish/console ezplatform:install demo
 else
   echo "> Install ezplatform clean"
