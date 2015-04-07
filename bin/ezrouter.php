@@ -32,11 +32,7 @@ EOT;
     exit;
 }
 
-// Use index_dev.php front controller to have all debug tools and info unless ENVIRONMENT is set.
-if ( getenv( "ENVIRONMENT" ) === false )
-    $script = 'index_dev.php';
-else
-    $script = 'index.php';
+$script = 'index.php';
 
 // To stick with regular Apache HTTPD behaviour, SCRIPT_NAME should equal to PHP_SELF.
 // Fix SCRIPT_NAME and PHP_SELF since we deal with virtual folders, so PHP server would append /index.php to it.
