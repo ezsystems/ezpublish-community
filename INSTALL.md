@@ -57,9 +57,7 @@
        A. **Using ACL on a system that supports chmod +a**
 
        ```bash
-       $ rm -rf ezpublish/cache/*
-       $ rm -rf ezpublish/logs/*
-       $ rm -rf ezpublish/sessions/*
+       $ rm -rf ezpublish/cache/* ezpublish/logs/* ezpublish/sessions/*
        $ sudo chmod +a "www-data allow delete,write,append,file_inherit,directory_inherit" \
          ezpublish/{cache,logs,config,sessions} ezpublish_legacy/{design,extension,settings,var} web
        $ sudo chmod +a "`whoami` allow delete,write,append,file_inherit,directory_inherit" \
