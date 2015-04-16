@@ -22,7 +22,7 @@
        ```
        
       Options:
-      - `<version>`: `dev-master` to get current development version (pre release), `v2015.01` to pick a specific release, otherwise skip it to get latest stable release.
+      - `<version>`: `dev-master` to get current development version (pre release), `v2014.11.1` to pick a specific release, otherwise skip it to get latest stable release.
       - For core development change '--prefer-dist' to '--prefer-source' to get full git clones, and remove '--no-dev' to get things like phpunit and behat installed.
 
   After running command above, composer will take its time to download all libraries, then a wizard will ask you for setting to database and lastly a welcome screen should grant you instructions for finishing installation.
