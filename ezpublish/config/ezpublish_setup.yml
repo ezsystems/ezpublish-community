@@ -1,10 +1,27 @@
+doctrine:
+    dbal:
+        connections:
+            default:
+                driver: pdo_mysql
+                host: localhost
+                user: root
+                dbname: none
+
 ezpublish:
+    repositories:
+        setup: ~
     siteaccess:
-        list: ['setup']
+        # Available siteaccesses
+        list:
+            - setup
+        # Siteaccess groups. Use them to group common settings.
         groups: []
-        default_siteaccess: 'setup'
-        match:
-            URIElement: '1'
+        default_siteaccess: setup
+        match: {}
+
+    system:
+        setup:
+            languages: []
 
 stash:
     caches:

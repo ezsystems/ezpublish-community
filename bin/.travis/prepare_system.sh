@@ -1,4 +1,4 @@
-#!/bin/sh
+#!/bin/bash
 
 # Script to do tasks before install, can install system packages / software
 ## See http://about.travis-ci.org/docs/user/build-configuration/
@@ -9,7 +9,10 @@
 ##       https://github.com/facebook/hiphop-php/commit/0b2dfdf4492eb06a125b068e939d092ec0588e5c
 
 # Disable xdebug to speed things up
-phpenv config-rm xdebug.ini
+if [[ "$USE_DEBUGGING" == "" && "$TRAVIS_PHP_VERSION" != "" && "$TRAVIS_PHP_VERSION" != "hhvm" ]]; then
+    echo "> Disable xdebug";
+    phpenv config-rm xdebug.ini ;
+fi
 
 # Install needed packages
 echo "> Installing needed packages";

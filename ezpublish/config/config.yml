@@ -2,17 +2,6 @@ imports:
     - { resource: parameters.yml }
     - { resource: security.yml }
 
-doctrine:
-    dbal:
-        connections:
-            default:
-                driver: %database_driver%
-                host: %database_host%
-                user: %database_user%
-                password: %database_password%
-                dbname: %database_name%
-                charset: UTF8
-
 framework:
     esi:             ~
     translator:      { fallback: "%locale_fallback%" }
@@ -30,7 +19,7 @@ framework:
     # Place "eztpl" engine first intentionnally.
     # This is to avoid template name parsing with Twig engine, refusing specific characters
     # which are valid with legacy tpl files.
-    templating:      { engines: ['twig'] } #assets_version: SomeVersionScheme
+    templating:      { engines: ['eztpl', 'twig'] } #assets_version: SomeVersionScheme
     default_locale:  "%locale_fallback%"
     trusted_hosts:   ~
     trusted_proxies: ~
