@@ -96,7 +96,7 @@ ezpublish:
                     filters:
                         - {name: geometry/scaledownonly, params: [400, 350]}
                 my_cropped_variation:
-                    reference: my_mage_variation
+                    reference: my_image_variation
                     filters:
                         - {name: geometry/scalewidthdownonly, params: [300]}
                         - {name: geometry/crop, params: [200, 200, 0, 0]}
