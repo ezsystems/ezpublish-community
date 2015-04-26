@@ -15,6 +15,11 @@ eZ Publish exists in two versions; this, the community version is available unde
 the GPLv2 license, while several extended versions for enterprise & business is available
 under a more permissive business license, see [ez.no](http://ez.no/) for more info.
 
+## eZ Publish / eZ Platform
+This repository contains the eZ Publish 5 dual kernel. It integrates eZ Publish Legacy, unlike the next product generation, [eZ Platform](https://github.com/ezsystems/ezplatform). This repository is mostly maintained for backwards compatibility.
+
+eZ Platform, formerly eZ Publish 6, uses the same Symfony kernel than eZ Publish 5, but does not include the legacy application, nor the dependent libraries. eZ Platform is where the new features are added.
+
 ## Install, Upgrade and Getting started
 For installation & upgrade instructions, see [INSTALL.md](https://github.com/ezsystems/ezpublish-community/blob/master/INSTALL.md).
 
