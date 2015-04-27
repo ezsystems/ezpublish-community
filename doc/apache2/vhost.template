@@ -91,6 +91,11 @@
         #RewriteRule ^/var/([^/]+/)?storage/images(-versioned)?/.* /index_cluster.php [L]
         #RewriteRule ^/var/([^/]+/)?cache/(texttoimage|public)/.* /index_cluster.php [L]
 
+        # If using default installation of demobundle or linking to uploaded binary file content, you may wish to uncomment the following two lines:
+        # These lines represent a temporary bugfix and also a potential security issue which is documented here: https://jira.ez.no/browse/EZP-24312
+        #RewriteRule ^/var/storage/.* - [L]
+        #RewriteRule ^/var/[^/]+/storage/.* - [L]
+
         RewriteRule ^/var/([^/]+/)?storage/images(-versioned)?/.* - [L]
         RewriteRule ^/var/([^/]+/)?cache/(texttoimage|public)/.* - [L]
         RewriteRule ^/design/[^/]+/(stylesheets|images|javascript|fonts)/.* - [L]
