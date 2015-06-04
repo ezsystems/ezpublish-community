@@ -24,6 +24,7 @@
         "incenteev/composer-parameter-handler": "~2.0",
         "tedivm/stash-bundle": "0.4.*",
         "ezsystems/ezpublish-kernel": "dev-master",
+        "ezsystems/repository-forms": "dev-master",
         "ezsystems/legacy-bridge": "dev-master",
         "ezsystems/ngsymfonytools-bundle": "dev-master",
         "ezsystems/platform-ui-bundle": "dev-master",
