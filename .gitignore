@@ -26,4 +26,4 @@ composer.lock
 .buildpath
 .project
 .settings/
-
+behat.yml
