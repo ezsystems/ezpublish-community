@@ -61,6 +61,7 @@ class EzPublishKernel extends Kernel
                 $bundles[] = new EzSystems\BehatBundle\EzSystemsBehatBundle();
                 // No break, test also needs dev bundles
             case "dev":
+                $bundles[] = new Symfony\Bundle\DebugBundle\DebugBundle();
                 $bundles[] = new eZ\Bundle\EzPublishDebugBundle\EzPublishDebugBundle();
                 $bundles[] = new Symfony\Bundle\WebProfilerBundle\WebProfilerBundle();
                 $bundles[] = new Sensio\Bundle\DistributionBundle\SensioDistributionBundle();
