@@ -6,7 +6,6 @@
  * @license For full copyright and license information view LICENSE file distributed with this source code.
  * @version //autogentag//
  */
-
 use eZ\Bundle\EzPublishCoreBundle\Kernel;
 use Symfony\Component\Config\Loader\LoaderInterface;
 
@@ -36,7 +35,7 @@ class EzPublishKernel extends Kernel
             new FOS\HttpCacheBundle\FOSHttpCacheBundle(),
             new eZ\Bundle\EzPublishCoreBundle\EzPublishCoreBundle(),
             new eZ\Bundle\EzPublishLegacySearchEngineBundle\EzPublishLegacySearchEngineBundle(),
-            new eZ\Bundle\EzPublishLegacyBundle\EzPublishLegacyBundle( $this ),
+            new eZ\Bundle\EzPublishLegacyBundle\EzPublishLegacyBundle($this),
             new eZ\Bundle\EzPublishIOBundle\EzPublishIOBundle(),
             new EzSystems\DemoBundle\EzSystemsDemoBundle(),
             new eZ\Bundle\EzPublishRestBundle\EzPublishRestBundle(),
@@ -55,13 +54,12 @@ class EzPublishKernel extends Kernel
             new eZ\Bundle\EzPublishSolrSearchEngineBundle\EzPublishSolrSearchEngineBundle(),
         );
 
-        switch ( $this->getEnvironment() )
-        {
-            case "test":
-            case "behat":
+        switch ($this->getEnvironment()) {
+            case 'test':
+            case 'behat':
                 $bundles[] = new EzSystems\BehatBundle\EzSystemsBehatBundle();
                 // No break, test also needs dev bundles
-            case "dev":
+            case 'dev':
                 $bundles[] = new Symfony\Bundle\DebugBundle\DebugBundle();
                 $bundles[] = new eZ\Bundle\EzPublishDebugBundle\EzPublishDebugBundle();
                 $bundles[] = new Symfony\Bundle\WebProfilerBundle\WebProfilerBundle();
@@ -74,29 +72,27 @@ class EzPublishKernel extends Kernel
     }
 
     /**
-     * Loads the container configuration
+     * Loads the container configuration.
      *
      * @param LoaderInterface $loader A LoaderInterface instance
      * @throws \RuntimeException when config file is not readable
      *
      * @api
      */
-    public function registerContainerConfiguration( LoaderInterface $loader )
+    public function registerContainerConfiguration(LoaderInterface $loader)
     {
         $environment = $this->getEnvironment();
-        $loader->load( __DIR__ . '/config/config_' . $environment . '.yml' );
+        $loader->load(__DIR__ . '/config/config_' . $environment . '.yml');
         $configFile = __DIR__ . '/config/ezpublish_' . $environment . '.yml';
 
-        if ( !is_file( $configFile ) )
-        {
+        if (!is_file($configFile)) {
             $configFile = __DIR__ . '/config/ezpublish_setup.yml';
         }
 
-        if ( !is_readable( $configFile ) )
-        {
-            throw new RuntimeException( "Configuration file '$configFile' is not readable." );
+        if (!is_readable($configFile)) {
+            throw new RuntimeException("Configuration file '$configFile' is not readable.");
         }
 
-        $loader->load( $configFile );
+        $loader->load($configFile);
     }
 }
