@@ -1,13 +1,13 @@
+# This file contains the default configuration for behat testing using EzSystems/BehatBundle
+
 default:
     extensions:
         Behat\MinkExtension:
             base_url: 'http://localhost'
             goutte: ~
-            sahi:
-                limit: 1200
             selenium2:
-                capabilities: { "browser": "firefox", "version": "17"}
-            javascript_session: sahi
+                wd_host: 'http://localhost:4444/wd/hub'
+            javascript_session: selenium2
             browser_name: firefox
 
         Behat\Symfony2Extension:
@@ -25,21 +25,21 @@ rest:
     suites:
         fullJson:
             paths: [ vendor/ezsystems/ezpublish-kernel/eZ/Bundle/EzPublishRestBundle/Features ]
-            contexts: 
+            contexts:
                 - eZ\Bundle\EzPublishRestBundle\Features\Context\RestContext:
                     url: http://localhost/api/ezp/v2/
                     driver: BuzzDriver
                     type: json
         fullXml:
             paths: [ vendor/ezsystems/ezpublish-kernel/eZ/Bundle/EzPublishRestBundle/Features ]
-            contexts: 
+            contexts:
                 - eZ\Bundle\EzPublishRestBundle\Features\Context\RestContext:
                     url: http://localhost/api/ezp/v2/
                     driver: BuzzDriver
                     type: xml
         guzzle:
             paths: [ vendor/ezsystems/ezpublish-kernel/eZ/Bundle/EzPublishRestBundle/Features ]
-            contexts: 
+            contexts:
                 - eZ\Bundle\EzPublishRestBundle\Features\Context\RestContext:
                     url: http://localhost/api/ezp/v2/
                     driver: GuzzleDriver
@@ -50,6 +50,9 @@ demo:
         content:
             paths: [ vendor/ezsystems/demobundle/EzSystems/DemoBundle/Features/Content ]
             contexts: [ EzSystems\DemoBundle\Features\Context\Content\Context ]
+        clean:
+            paths: [ vendor/ezsystems/demobundle/EzSystems/DemoBundle/Features/Clean ]
+            contexts: [ EzSystems\DemoBundle\Features\Context\Demo ]
 
 legacyAdmin:
     extensions:

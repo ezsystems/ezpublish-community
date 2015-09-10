@@ -25,6 +25,7 @@
         "tedivm/stash-bundle": "0.4.*",
         "ezsystems/ezpublish-kernel": "~6.0@dev",
         "ezsystems/repository-forms": "~0.1@dev",
+        "ezsystems/ezplatform-solr-search-engine": "~1.0.0@dev",
         "ezsystems/legacy-bridge": "~0.3@dev",
         "ezsystems/ngsymfonytools-bundle": "~1.0",
         "ezsystems/platform-ui-bundle": "~0.8@dev",
@@ -39,12 +40,10 @@
         "sensio/framework-extra-bundle": "~3.0"
     },
     "require-dev": {
-        "behat/behat": "3.0.*",
-        "behat/symfony2-extension": "2.0.*",
-        "behat/sahi-client": "dev-master as 1.1.1",
+        "behat/behat": "~3.0",
+        "behat/symfony2-extension": "~2.0",
         "behat/mink-extension": "*",
         "behat/mink-goutte-driver": "*",
-        "behat/mink-sahi-driver": "*",
         "behat/mink-selenium2-driver": "*",
         "ezsystems/behatbundle": "@dev"
     },
