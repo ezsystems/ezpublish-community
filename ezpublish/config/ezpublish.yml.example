@@ -21,23 +21,27 @@ stash:
             registerDoctrineAdapter: false
             # On Windows, using FileSystem, to avoid hitting filesystem limitations
             # you need to change the keyHashFunction used to generate cache directories to "crc32"
-            # FileSystem
+            # FileSystem:
             #    keyHashFunction: crc32
 
 ezpublish:
     # Define all your repositories here
-    # If you use multi-site with multiple databases, you shall define multiple repositories
+    # If you use multi-site with multiple databases, you should define multiple repositories
     repositories:
-        # "main" repository, with default values
+        # "main" repository, with default values for storage
         # Same as:
         # main:
         #     storage:
         #         engine: legacy
         #         connection: default
         #     search:
-        #         engine: legacy
+        #         engine: %search_engine%
         #         connection: default
-        main: ~
+        main:
+            storage: ~
+            search:
+                engine: %search_engine%
+                connection: default
 
     siteaccess:
         # Available siteaccesses
@@ -96,7 +100,7 @@ ezpublish:
                     filters:
                         - {name: geometry/scaledownonly, params: [400, 350]}
                 my_cropped_variation:
-                    reference: my_image_variation
+                    reference: my_mage_variation
                     filters:
                         - {name: geometry/scalewidthdownonly, params: [300]}
                         - {name: geometry/crop, params: [200, 200, 0, 0]}
