@@ -9,8 +9,6 @@ php:
 
 # list of paths/bundle to execute
 env:
-  # run setup wizard to install Demo+Content and then test demo with content
-  - INSTALL="demoContentNonUniqueDB" PROFILE="demo" TEST="content"
   # test Legacy
   - INSTALL="demoCleanNonUniqueDB" PROFILE="legacyAdmin" TEST="full"
   # test REST
