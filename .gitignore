@@ -16,8 +16,10 @@
 /web/index_rest.php
 /web/index_cluster.php
 /web/bundles/
+/web/css
 /web/design
 /web/extension
+/web/js
 /web/share
 /web/var
 /web/.htaccess
