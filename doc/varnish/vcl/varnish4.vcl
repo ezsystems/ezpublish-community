@@ -66,7 +66,7 @@ sub vcl_recv {
         if (client.ip ~ debuggers) {
             set req.http.X-Debug = "Not Cached according to configuration (Authorization)";
         }
-        return (hash);
+        return (pass);
     }
 
     // Do a standard lookup on assets
