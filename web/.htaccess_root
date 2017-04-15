@@ -1,0 +1,62 @@
+DirectoryIndex index.php
+
+RewriteEngine On
+
+# skip "real" requests
+RewriteCond %{REQUEST_FILENAME} -f
+RewriteRule .* - [QSA,L]
+
+# CVE-2012-6432
+# Uncomment if you have Symfony v2.1.5 or superior
+# eZ Publish 5.0 EE is shipped with Symfony v2.1.4
+RewriteRule ^/_internal - [R=403,L]
+
+# Uncomment in FastCGI mode or when using PHP-FPM, to get basic auth working.
+#RewriteRule .* - [E=HTTP_AUTHORIZATION:%{HTTP:Authorization}]
+
+# v1 rest API is on Legacy
+RewriteRule ^/api/[^/]+/v1/ /index_rest.php [L]
+
+# If using cluster, uncomment the following two lines:
+#RewriteRule ^/var/([^/]+/)?storage/images(-versioned)?/.* /index_cluster.php [L]
+#RewriteRule ^/var/([^/]+/)?cache/(texttoimage|public)/.* /index_cluster.php [L]
+
+RewriteRule ^/var/([^/]+/)?storage/images(-versioned)?/.* - [L]
+RewriteRule ^/var/([^/]+/)?cache/(texttoimage|public)/.* - [L]
+RewriteRule ^/design/[^/]+/(stylesheets|images|javascript|fonts)/.* - [L]
+RewriteRule ^/share/icons/.* - [L]
+RewriteRule ^/extension/[^/]+/design/[^/]+/(stylesheets|flash|images|lib|javascripts?)/.* - [L]
+RewriteRule ^/packages/styles/.+/(stylesheets|images|javascript)/[^/]+/.* - [L]
+RewriteRule ^/packages/styles/.+/thumbnail/.* - [L]
+RewriteRule ^/var/storage/packages/.* - [L]
+
+# Touch icon, site bookmark tile and favicon:
+RewriteRule ^/favicon.*\.(ico|png)$ - [L]
+
+# Uncomment the line below if you want you favicon be served
+# from the standard design. You can customize the path to
+# favicon.ico by changing /design/standard/images/favicon\.ico
+#RewriteRule ^/favicon\.ico /design/standard/images/favicon.ico [L]
+RewriteRule ^/design/standard/images/favicon\.ico - [L]
+
+# Give direct access to robots.txt for use by crawlers (Google,
+# Bing, Spammers..)
+RewriteRule ^/robots\.txt - [L]
+
+# Platform for Privacy Preferences Project ( P3P ) related files
+# for Internet Explorer
+# More info here : http://en.wikipedia.org/wiki/P3p
+RewriteRule ^/w3c/p3p\.xml - [L]
+
+# Uncomment the following lines when using popup style debug in legacy
+#RewriteRule ^/var/([^/]+/)?cache/debug\.html.* - [L]
+
+# Following rule is needed to correctly display assets from eZ Publish5 / Symfony bundles
+RewriteRule ^/bundles/ - [L]
+
+# Additional Assetic rules for eZ Publish 5.1 / 2013.4 and higher:
+RewriteRule ^/css/.*\.css - [L]
+RewriteRule ^/js/.*\.js - [L]
+RewriteRule ^/img/.*(png|jpg) - [L]
+
+RewriteRule .* index.php [QSA,L]
