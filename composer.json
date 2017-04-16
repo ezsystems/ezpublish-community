@@ -50,6 +50,12 @@
         "ezsystems/behatbundle": "@dev"
     },
     "scripts": {
+        "pre-install-cmd": [
+            "bin/clear-container-cache.sh"
+        ],
+        "pre-update-cmd": [
+            "bin/clear-container-cache.sh"
+        ],
         "post-install-cmd": [
             "Incenteev\\ParameterHandler\\ScriptHandler::buildParameters",
             "Sensio\\Bundle\\DistributionBundle\\Composer\\ScriptHandler::buildBootstrap",
