@@ -35,5 +35,10 @@ rewrite "^/w3c/p3p\.xml" "/w3c/p3p.xml" break;
 # Following rule is needed to correctly display assets from eZ Publish5 / Symfony bundles
 rewrite "^/bundles/(.*)" "/bundles/$1" break;
 
+# Prevent access to website with direct usage of index.php in URL
+if ($request_uri ~ "^/(.+/)?index\.php") {
+    return 404;
+}
+
 rewrite "^(.*)$" "/index.php$1" last;
 
