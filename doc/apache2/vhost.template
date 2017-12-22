@@ -188,4 +188,9 @@
             #ExpiresDefault "now plus 30 days"
         #</LocationMatch>
     </IfModule>
+
+    # Enable gzip encoding
+    <IfModule mod_deflate.c>
+        AddOutputFilterByType DEFLATE text/css application/x-javascript application/javascript text/javascript text/plain text/html text/xml application/xml
+    </IfModule>
 </VirtualHost>
